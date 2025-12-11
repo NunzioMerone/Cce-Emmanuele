@@ -1,8 +1,8 @@
 import React from "react";
 import { AppRoutes } from "./router/routes";
 
-const App: React.FC = () => {
+function App() {
   return <AppRoutes />;
-};
+}
 
 export default App;
