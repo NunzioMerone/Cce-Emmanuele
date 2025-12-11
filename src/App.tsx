@@ -7,7 +7,6 @@ import { MediaPage } from "./pages/MediaPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { AdminPage } from "./pages/AdminPage";
-import { ProtectedRoute } from "./components/admin/ProtectedRoute";
 
 function App() {
   return (
@@ -18,14 +17,8 @@ function App() {
       <Route path="/media" element={<MediaPage />} />
       <Route path="/chi-siamo" element={<AboutPage />} />
       <Route path="/contatti" element={<ContactPage />} />
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <AdminPage />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/admin" element={<AdminPage />} />
+      <Route path="/admin/*" element={<AdminPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
