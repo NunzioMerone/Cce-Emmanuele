@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../components/common/Input";
 import { Button } from "../components/common/Button";
-import { firebaseAuth } from "../services/firebase";
 
 export const AdminLoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -11,25 +10,27 @@ export const AdminLoginPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
     setIsLoading(true);
     setError("");
 
-    try {
-      // Login con Firebase Authentication
-      await firebaseAuth.login(username, password);
+    console.log("Username inserito:", username);
+    console.log("Password inserita:", password);
 
-      console.log("✅ Login riuscito!");
-      localStorage.setItem("adminAuth", "true");
-      window.location.href = "/Cce-Emmanuele/admin";
-    } catch (error: any) {
-      console.log("❌ Credenziali errate");
-      setError("Username o password non validi");
-      setIsLoading(false);
-    }
+    setTimeout(() => {
+      if (username.trim() === "admin" && password === "CceEmmanuele") {
+        console.log("✅ Login riuscito!");
+        localStorage.setItem("adminAuth", "true");
+        window.location.href = "/Cce-Emmanuele/admin";
+      } else {
+        console.log("❌ Credenziali errate");
+        setError("Username o password non validi");
+        setIsLoading(false);
+      }
+    }, 500);
   };
 
   return (
@@ -104,7 +105,7 @@ export const AdminLoginPage: React.FC = () => {
 
           {/* Info credenziali (rimuovi in produzione) */}
           <div className="bg-blue-50 p-3 rounded-lg text-xs text-blue-800 border border-blue-200">
-            <p className="font-semibold mb-1">ℹ️ Credenziali di test:</p>
+            <p className="font-semibold mb-1">ℹ️ Credenziali di accesso:</p>
             <p>
               Username:{" "}
               <code className="bg-white px-2 py-0.5 rounded">admin</code>
