@@ -7,9 +7,9 @@ import { EventsPage } from "./pages/EventsPage";
 import { MediaPage } from "./pages/MediaPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
-import { AdminLoginPage } from "./pages/AdminLoginPage";
 import { AdminPage } from "./pages/AdminPage";
-import { ProtectedRoute } from "./components/admin/ProtectedRoute";
+import { AdminLoginPage } from "./pages/AdminLoginPage";
+import { ProtectedRoute } from "./router/ProtectedRoute";
 
 function App() {
   return (
