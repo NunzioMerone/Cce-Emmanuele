@@ -63,7 +63,6 @@ export const AdminLoginPage: React.FC = () => {
             }}
             placeholder="admin"
             required
-            autoComplete="username"
           />
 
           <Input
@@ -76,7 +75,6 @@ export const AdminLoginPage: React.FC = () => {
             }}
             placeholder="••••••••"
             required
-            autoComplete="current-password"
           />
 
           {error && (
