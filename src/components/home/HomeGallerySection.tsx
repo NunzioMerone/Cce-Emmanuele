@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../common/Button";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
+// Usa immagini da Unsplash come placeholder (sempre disponibili)
 const images = [
   { id: 1, src: "/Cce-Emmanuele/foto1.png", alt: "Chiesa 1" },
   { id: 2, src: "/Cce-Emmanuele/foto2.png", alt: "Chiesa 2" },
@@ -22,14 +24,14 @@ export const HomeGallerySection: React.FC = () => {
               <div className="space-y-4">
                 <div className="h-64 rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500">
                   <img
-                    src="/foto1.png"
+                    src="/Cce-Emmanuele/foto1.png"
                     alt="Chiesa Emmanuele"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="h-48 rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500">
                   <img
-                    src="/foto2.png"
+                    src="/Cce-Emmanuele/foto2.png"
                     alt="Comunità"
                     className="w-full h-full object-cover"
                   />
@@ -38,14 +40,14 @@ export const HomeGallerySection: React.FC = () => {
               <div className="space-y-4 mt-12">
                 <div className="h-48 rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500">
                   <img
-                    src="/foto3.png"
+                    src="/Cce-Emmanuele/foto3.png"
                     alt="Eventi"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="h-64 rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500">
                   <img
-                    src="/foto4.jpg"
+                    src="/Cce-Emmanuele/foto4.jpg"
                     alt="Adorazione"
                     className="w-full h-full object-cover"
                   />

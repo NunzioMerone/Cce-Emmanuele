@@ -81,12 +81,11 @@ export const AboutPage: React.FC = () => {
                   {/* Foto principale grande */}
                   <div className="absolute top-0 left-0 w-3/5 h-3/5 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 z-10">
                     <img
-                      src="/Cce-Emmanuele/foto1.png"
+                      src="/Cce-Emmanuele/hero5.jpg"
                       alt="Chiesa Emmanuele"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  {/* Foto piccola in alto a destra */}
                   <div className="absolute top-12 right-0 w-2/5 h-2/5 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 z-20">
                     <img
                       src="/Cce-Emmanuele/foto2.png"
@@ -94,7 +93,6 @@ export const AboutPage: React.FC = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  {/* Foto media in basso a sinistra */}
                   <div className="absolute bottom-0 left-12 w-2/5 h-2/5 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 z-20">
                     <img
                       src="/Cce-Emmanuele/foto1.png"
