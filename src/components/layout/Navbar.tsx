@@ -16,7 +16,8 @@ export const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Rimuovi la logica isHomePage - navbar sempre trasparente all'inizio
+  // Determina se siamo sulla home page
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +52,7 @@ export const Navbar: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gold-500 rounded-full blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
               <img
-                src="/logo.png"
+                src="/Cce-Emmanuele/logo.png"
                 alt="Chiesa Emmanuele Logo"
                 className={`rounded-full object-cover shadow-md group-hover:scale-110 transition-all duration-300 ${
                   isScrolled ? "h-12 w-12" : "h-14 w-14"

@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../common/Button";
 import { googleDriveService } from "../../services/googleDriveApi";
 
-// Immagini locali di fallback
+// Immagini locali di fallback con base path corretto
 const localHeroImages = [
-  "/hero1.jpg",
-  "/hero2.jpg",
-  "/hero3.jpg",
-  "/hero4.jpg",
-  "/hero5.jpg",
-  "/hero6.jpg",
-  "/hero7.jpg",
+  "/Cce-Emmanuele/hero1.jpg",
+  "/Cce-Emmanuele/hero2.jpg",
+  "/Cce-Emmanuele/hero3.jpg",
+  "/Cce-Emmanuele/hero4.jpg",
+  "/Cce-Emmanuele/hero5.jpg",
+  "/Cce-Emmanuele/hero6.jpg",
+  "/Cce-Emmanuele/hero7.jpg",
 ];
 
 export const HomeHero: React.FC = () => {

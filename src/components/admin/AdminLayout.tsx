@@ -35,7 +35,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <img
-                src="/logo.png"
+                src="/Cce-Emmanuele/logo.png"
                 alt="Logo"
                 className="h-10 w-10 rounded-full"
               />

@@ -26,7 +26,7 @@ export const AdminLoginPage: React.FC = () => {
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
           <img
-            src="/logo.png"
+            src="/Cce-Emmanuele/logo.png"
             alt="Logo"
             className="h-16 w-16 mx-auto mb-4 rounded-full"
           />

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Esporta Dati Admin</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #f9fafb;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      button:hover {
+        background: #1d4ed8;
+      }
+      textarea {
+        width: 100%;
+        height: 300px;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-family: monospace;
+      }
+      .success {
+        background: #10b981;
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔧 Esporta/Importa Dati Admin</h1>
+      <p>Usa questi strumenti per salvare e ripristinare i dati del sito.</p>
+
+      <div style="margin: 20px 0">
+        <button onclick="exportData()">📥 Esporta Dati</button>
+        <button onclick="importData()">📤 Importa Dati</button>
+        <button onclick="clearData()" style="background: #dc2626">
+          🗑️ Cancella Tutto
+        </button>
+      </div>
+
+      <textarea
+        id="dataArea"
+        placeholder="I dati appariranno qui..."
+      ></textarea>
+      <div id="success" class="success">✅ Operazione completata!</div>
+    </div>
+
+    <script>
+      function exportData() {
+        const data = {
+          events: localStorage.getItem("events"),
+          ministries: localStorage.getItem("ministries"),
+          playlists: localStorage.getItem("playlists"),
+          mission: localStorage.getItem("mission"),
+          gallery: localStorage.getItem("gallery"),
+          approvedHeroImages: localStorage.getItem("approvedHeroImages"),
+          exportDate: new Date().toISOString(),
+        };
+
+        document.getElementById("dataArea").value = JSON.stringify(
+          data,
+          null,
+          2
+        );
+        showSuccess();
+      }
+
+      function importData() {
+        const dataStr = document.getElementById("dataArea").value;
+        if (!dataStr) {
+          alert("⚠️ Incolla prima i dati da importare!");
+          return;
+        }
+
+        try {
+          const data = JSON.parse(dataStr);
+
+          if (data.events) localStorage.setItem("events", data.events);
+          if (data.ministries)
+            localStorage.setItem("ministries", data.ministries);
+          if (data.playlists) localStorage.setItem("playlists", data.playlists);
+          if (data.mission) localStorage.setItem("mission", data.mission);
+          if (data.gallery) localStorage.setItem("gallery", data.gallery);
+          if (data.approvedHeroImages)
+            localStorage.setItem("approvedHeroImages", data.approvedHeroImages);
+
+          showSuccess();
+          alert("✅ Dati importati con successo! Ricarica la pagina.");
+        } catch (error) {
+          alert("❌ Errore: dati non validi");
+        }
+      }
+
+      function clearData() {
+        if (confirm("⚠️ SEI SICURO? Questo cancellerà TUTTI i dati!")) {
+          localStorage.clear();
+          document.getElementById("dataArea").value = "";
+          showSuccess();
+          alert("🗑️ Tutti i dati sono stati cancellati");
+        }
+      }
+
+      function showSuccess() {
+        const el = document.getElementById("success");
+        el.style.display = "block";
+        setTimeout(() => {
+          el.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
