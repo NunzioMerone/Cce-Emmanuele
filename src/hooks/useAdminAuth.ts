@@ -1,69 +1,30 @@
 import { useState, useEffect } from "react";
-import { AdminCredentials, AdminSession } from "../types/admin";
-import { storage } from "../utils/storageUtils";
-
-const ADMIN_CREDENTIALS = {
-  username: "admin",
-  password: "emmanuele2024",
-};
+import { useNavigate } from "react-router-dom";
 
 export const useAdminAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [username, setUsername] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const session = storage.getAdminSession();
-    if (session) {
-      setIsAuthenticated(true);
-      setUsername(session.username);
-    }
-    setIsLoading(false);
+    // Controlla se l'utente è autenticato
+    const auth = localStorage.getItem("adminAuth");
+    setIsAuthenticated(auth === "true");
   }, []);
 
+  const login = () => {
+    localStorage.setItem("adminAuth", "true");
+    setIsAuthenticated(true);
+  };
+
   const logout = () => {
-    storage.clearAdminSession();
+    localStorage.removeItem("adminAuth");
     setIsAuthenticated(false);
-    setUsername("");
-    window.location.href = "/";
-  };
-
-  const login = (credentials: AdminCredentials): boolean => {
-    if (
-      credentials.username === ADMIN_CREDENTIALS.username &&
-      credentials.password === ADMIN_CREDENTIALS.password
-    ) {
-      const session: AdminSession = {
-        username: credentials.username,
-        loginTime: new Date().toISOString(),
-      };
-      storage.setAdminSession(session);
-      setIsAuthenticated(true);
-      setUsername(credentials.username);
-      return true;
-    }
-    return false;
-  };
-
-  const checkAuth = (): boolean => {
-    const session = storage.getAdminSession();
-    if (session) {
-      setIsAuthenticated(true);
-      setUsername(session.username);
-      return true;
-    }
-    storage.clearAdminSession();
-    setIsAuthenticated(false);
-    setUsername("");
-    return false;
+    navigate("/admin/login");
   };
 
   return {
     isAuthenticated,
-    username,
-    isLoading,
     login,
     logout,
-    checkAuth,
   };
 };

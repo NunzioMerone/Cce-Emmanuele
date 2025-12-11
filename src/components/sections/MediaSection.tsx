@@ -1,23 +1,43 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { SectionTitle } from "../common/SectionTitle";
 import { Card } from "../common/Card";
 import { Modal } from "../common/Modal";
-import { MediaItem, extractYouTubeId } from "../../types/media";
+import { MediaItem, extractYouTubeId, Playlist } from "../../types/media";
 import { mediaMock } from "../../utils/mediaMock";
 import { storage } from "../../utils/storageUtils";
+import { playlistsMock } from "../../utils/playlistsMock";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export const MediaSection: React.FC = () => {
   const [media, setMedia] = useState<MediaItem[]>([]);
   const [selectedVideo, setSelectedVideo] = useState<MediaItem | null>(null);
+  const navigate = useNavigate();
+  const section = useScrollAnimation();
 
   useEffect(() => {
     const stored = storage.getMedia();
     setMedia(stored || mediaMock);
   }, []);
 
+  useEffect(() => {
+    const playlists = storage.getPlaylists() || playlistsMock;
+
+    // Prendi i primi 3 video dalla prima playlist
+    if (playlists.length > 0 && playlists[0].videos.length > 0) {
+      setMedia(playlists[0].videos.slice(0, 3));
+    }
+  }, []);
+
   return (
     <section id="media" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
+          section.isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+        }`}
+      >
         <SectionTitle
           title="Media"
           subtitle="Guarda le nostre predicazioni e testimonianze"
@@ -62,6 +82,28 @@ export const MediaSection: React.FC = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center">
+          <button
+            onClick={() => navigate("/media")}
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Vedi tutte le predicazioni
+            <svg
+              className="w-5 h-5 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
 
         {/* Video Modal */}
