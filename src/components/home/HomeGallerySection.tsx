@@ -2,6 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../common/Button";
 
+const images = [
+  { id: 1, src: "/Cce-Emmanuele/foto1.png", alt: "Chiesa 1" },
+  { id: 2, src: "/Cce-Emmanuele/foto2.png", alt: "Chiesa 2" },
+  { id: 3, src: "/Cce-Emmanuele/foto3.png", alt: "Chiesa 3" },
+  { id: 4, src: "/Cce-Emmanuele/foto4.jpg", alt: "Chiesa 4" },
+];
+
 export const HomeGallerySection: React.FC = () => {
   const navigate = useNavigate();
 

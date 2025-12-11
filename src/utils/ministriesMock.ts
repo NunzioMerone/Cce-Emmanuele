@@ -6,7 +6,7 @@ export const ministriesMock: Ministry[] = [
     title: "Ministero Giovani",
     description:
       "Incontri ogni due settimane per i giovani con momenti di comunione, cibo, giochi e riflessioni sulla fede",
-    image: "/giovani.png",
+    image: "/Cce-Emmanuele/giovani.png",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     schedule: "Ogni 2 settimane • Venerdì ore 20:00-22:30",
@@ -18,7 +18,7 @@ export const ministriesMock: Ministry[] = [
     title: "Calcetto",
     description:
       "Partite di calcetto per stare insieme e divertirsi praticando sport in un clima di sana competizione",
-    image: "/ministeroCalcio.jpg",
+    image: "/Cce-Emmanuele/ministeroCalcio.jpg",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     schedule: "Ogni domenica • Ore 21:00",
@@ -30,7 +30,7 @@ export const ministriesMock: Ministry[] = [
     title: "Adorazione",
     description:
       "Momenti dedicati alla preghiera e al canto per adorare Dio insieme come comunità",
-    image: "/lode.png",
+    image: "/Cce-Emmanuele/lode.png",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     schedule: "Una volta al mese • Domenica ore 18:00",
@@ -42,7 +42,7 @@ export const ministriesMock: Ministry[] = [
     title: "Studio Biblico",
     description:
       "Approfondimento settimanale della Bibbia con studi tematici per crescere nella conoscenza della Parola",
-    image: "/studioBibblico.png",
+    image: "/Cce-Emmanuele/studioBibblico.png",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     schedule: "Ogni giovedì • Ore 18:00 o 20:00",
@@ -54,7 +54,7 @@ export const ministriesMock: Ministry[] = [
     title: "Teologia Sistematica",
     description:
       "Studio mensile approfondito della dottrina cristiana attraverso il libro di Teologia Sistematica",
-    image: "/teologiaSistematica.png",
+    image: "/Cce-Emmanuele/teologiaSistematica.png",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     schedule: "Una volta al mese • Sabato",
@@ -66,7 +66,7 @@ export const ministriesMock: Ministry[] = [
     title: "Preghiera",
     description:
       "Incontri di preghiera comunitaria per condividere richieste e intercedere insieme",
-    image: "/preghiera.png",
+    image: "/Cce-Emmanuele/preghiera.png",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     schedule: "Ogni 2 settimane • Domenica sera",
@@ -78,7 +78,7 @@ export const ministriesMock: Ministry[] = [
     title: "Scuola Domenicale",
     description:
       "Attività educative e ludiche per bambini durante il culto domenicale per insegnare la Bibbia",
-    image: "/ScuolaDomenicale.png",
+    image: "/Cce-Emmanuele/ScuolaDomenicale.png",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     schedule: "Ogni domenica mattina • Durante il culto",
