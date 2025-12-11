@@ -44,10 +44,10 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <button
-            onClick={() => handleNavClick("/")}
+          {/* Logo e nome */}
+          <div
             className="flex items-center space-x-3 cursor-pointer group"
+            onClick={() => navigate("/")}
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gold-500 rounded-full blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
@@ -67,7 +67,7 @@ export const Navbar: React.FC = () => {
                 Emmanuele
               </span>
             </div>
-          </button>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
@@ -120,6 +120,13 @@ export const Navbar: React.FC = () => {
               )}
             </svg>
           </button>
+
+          {/* Admin link nascosto (tieni premuto logo per 3 secondi) */}
+          <div
+            onDoubleClick={() => navigate("/admin/login")}
+            className="hidden lg:block w-2 h-2 opacity-0 hover:opacity-10 cursor-pointer"
+            title="Double click per admin"
+          />
         </div>
 
         {/* Mobile Menu */}
