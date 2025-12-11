@@ -1,36 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { SectionTitle } from "../common/SectionTitle";
-import { Card } from "../common/Card";
-import { Modal } from "../common/Modal";
-import { MediaItem, extractYouTubeId, Playlist } from "../../types/media";
-import { mediaMock } from "../../utils/mediaMock";
+import { MediaItem } from "../../types/media";
 import { storage } from "../../utils/storageUtils";
 import { playlistsMock } from "../../utils/playlistsMock";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export const MediaSection: React.FC = () => {
-  const [media, setMedia] = useState<MediaItem[]>([]);
-  const [selectedVideo, setSelectedVideo] = useState<MediaItem | null>(null);
+  const [videos, setVideos] = useState<MediaItem[]>([]);
   const navigate = useNavigate();
   const section = useScrollAnimation();
 
   useEffect(() => {
-    const stored = storage.getMedia();
-    setMedia(stored || mediaMock);
-  }, []);
-
-  useEffect(() => {
     const playlists = storage.getPlaylists() || playlistsMock;
 
-    // Prendi i primi 3 video dalla prima playlist
     if (playlists.length > 0 && playlists[0].videos.length > 0) {
-      setMedia(playlists[0].videos.slice(0, 3));
+      setVideos(playlists[0].videos.slice(0, 3));
     }
   }, []);
 
   return (
-    <section id="media" className="py-24 bg-white">
+    <section ref={section.ref} className="py-20 bg-white">
       <div
         className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
           section.isVisible
@@ -38,29 +27,27 @@ export const MediaSection: React.FC = () => {
             : "opacity-0 translate-y-10"
         }`}
       >
-        <SectionTitle
-          title="Media"
-          subtitle="Guarda le nostre predicazioni e testimonianze"
-        />
+        <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
+          Ultime Predicazioni
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {media.map((item) => (
-            <Card
-              key={item.id}
-              hover
-              onClick={() => setSelectedVideo(item)}
-              className="cursor-pointer"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {videos.map((video) => (
+            <div
+              key={video.id}
+              className="group cursor-pointer"
+              onClick={() => navigate(`/media?video=${video.id}`)}
             >
-              <div className="relative">
+              <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-4">
                 <img
-                  src={item.thumbnail}
-                  alt={item.title}
-                  className="w-full h-48 object-cover"
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors flex items-center justify-center">
+                  <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110">
                     <svg
-                      className="w-8 h-8 text-primary-600 ml-1"
+                      className="w-7 h-7 text-white ml-1"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -69,18 +56,13 @@ export const MediaSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-600 line-clamp-2">
-                  {item.description}
-                </p>
-                <p className="text-xs text-gray-400 mt-2">
-                  {new Date(item.publishedAt).toLocaleDateString("it-IT")}
-                </p>
-              </div>
-            </Card>
+              <h3 className="font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                {video.title}
+              </h3>
+              <p className="text-sm text-gray-600 line-clamp-2">
+                {video.description}
+              </p>
+            </div>
           ))}
         </div>
 
@@ -105,31 +87,6 @@ export const MediaSection: React.FC = () => {
             </svg>
           </button>
         </div>
-
-        {/* Video Modal */}
-        <Modal
-          isOpen={!!selectedVideo}
-          onClose={() => setSelectedVideo(null)}
-          title={selectedVideo?.title}
-          size="xl"
-        >
-          {selectedVideo && (
-            <div className="aspect-video">
-              <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube.com/embed/${extractYouTubeId(
-                  selectedVideo.youtubeUrl
-                )}`}
-                title={selectedVideo.title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="rounded-lg"
-              />
-            </div>
-          )}
-        </Modal>
       </div>
     </section>
   );
