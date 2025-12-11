@@ -29,7 +29,15 @@ export const AdminLoginPage: React.FC = () => {
       if (username.trim() === "admin" && password === "CceEmmanuele") {
         console.log("✅ Login riuscito!");
         localStorage.setItem("adminAuth", "true");
-        navigate("/admin");
+
+        // Naviga direttamente con window.location invece di navigate
+        console.log("Navigazione verso /admin...");
+        window.location.hash = "/admin";
+
+        // Fallback con navigate
+        setTimeout(() => {
+          navigate("/admin");
+        }, 100);
       } else {
         console.log("❌ Credenziali errate");
         setError("Username o password non validi");
