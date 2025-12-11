@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Cce-Emmanuele/", // Nome del tuo repository
+  base: "/", // Cambia in base al tuo setup - usa '/' se hai dominio custom
   build: {
     outDir: "dist",
     assetsDir: "assets",
