@@ -9,11 +9,9 @@ const STORAGE_KEYS = {
   MINISTRIES: "ministries",
   PLAYLISTS: "playlists",
   MISSION: "mission",
-  GALLERY: "gallery",
-  ADMIN_AUTH: "adminAuth",
 };
 
-const useFirebase = true; // Flag per abilitare/disabilitare Firebase
+const useFirebase = true;
 
 export const storage = {
   // Eventi
@@ -28,22 +26,8 @@ export const storage = {
     }
   },
 
-  getEvents: async (): Promise<Event[] | null> => {
+  getEvents: (): Event[] | null => {
     try {
-      // Prova prima Firebase
-      if (useFirebase) {
-        const firebaseData = await firebaseService.getEvents();
-        if (firebaseData) {
-          // Salva anche in localStorage per cache
-          localStorage.setItem(
-            STORAGE_KEYS.EVENTS,
-            JSON.stringify(firebaseData)
-          );
-          return firebaseData;
-        }
-      }
-
-      // Fallback su localStorage
       const data = localStorage.getItem(STORAGE_KEYS.EVENTS);
       return data ? JSON.parse(data) : null;
     } catch (error) {
@@ -64,19 +48,8 @@ export const storage = {
     }
   },
 
-  getMinistries: async (): Promise<Ministry[] | null> => {
+  getMinistries: (): Ministry[] | null => {
     try {
-      if (useFirebase) {
-        const firebaseData = await firebaseService.getMinistries();
-        if (firebaseData) {
-          localStorage.setItem(
-            STORAGE_KEYS.MINISTRIES,
-            JSON.stringify(firebaseData)
-          );
-          return firebaseData;
-        }
-      }
-
       const data = localStorage.getItem(STORAGE_KEYS.MINISTRIES);
       return data ? JSON.parse(data) : null;
     } catch (error) {
@@ -92,25 +65,13 @@ export const storage = {
       if (useFirebase) {
         await firebaseService.savePlaylists(playlists);
       }
-      console.log("✅ Playlist salvate");
     } catch (error) {
       console.error("Error saving playlists:", error);
     }
   },
 
-  getPlaylists: async (): Promise<Playlist[] | null> => {
+  getPlaylists: (): Playlist[] | null => {
     try {
-      if (useFirebase) {
-        const firebaseData = await firebaseService.getPlaylists();
-        if (firebaseData) {
-          localStorage.setItem(
-            STORAGE_KEYS.PLAYLISTS,
-            JSON.stringify(firebaseData)
-          );
-          return firebaseData;
-        }
-      }
-
       const data = localStorage.getItem(STORAGE_KEYS.PLAYLISTS);
       return data ? JSON.parse(data) : null;
     } catch (error) {
@@ -131,24 +92,49 @@ export const storage = {
     }
   },
 
-  getMission: async (): Promise<Mission | null> => {
+  getMission: (): Mission | null => {
     try {
-      if (useFirebase) {
-        const firebaseData = await firebaseService.getMission();
-        if (firebaseData) {
-          localStorage.setItem(
-            STORAGE_KEYS.MISSION,
-            JSON.stringify(firebaseData)
-          );
-          return firebaseData;
-        }
-      }
-
       const data = localStorage.getItem(STORAGE_KEYS.MISSION);
       return data ? JSON.parse(data) : null;
     } catch (error) {
       console.error("Error loading mission:", error);
       return null;
+    }
+  },
+
+  // Funzione per sincronizzare da Firebase (chiamata manualmente)
+  syncFromFirebase: async () => {
+    try {
+      console.log("🔄 Sincronizzazione da Firebase...");
+
+      const events = await firebaseService.getEvents();
+      if (events) {
+        localStorage.setItem(STORAGE_KEYS.EVENTS, JSON.stringify(events));
+      }
+
+      const ministries = await firebaseService.getMinistries();
+      if (ministries) {
+        localStorage.setItem(
+          STORAGE_KEYS.MINISTRIES,
+          JSON.stringify(ministries)
+        );
+      }
+
+      const playlists = await firebaseService.getPlaylists();
+      if (playlists) {
+        localStorage.setItem(STORAGE_KEYS.PLAYLISTS, JSON.stringify(playlists));
+      }
+
+      const mission = await firebaseService.getMission();
+      if (mission) {
+        localStorage.setItem(STORAGE_KEYS.MISSION, JSON.stringify(mission));
+      }
+
+      console.log("✅ Sincronizzazione completata");
+      return true;
+    } catch (error) {
+      console.error("❌ Errore sincronizzazione:", error);
+      return false;
     }
   },
 };

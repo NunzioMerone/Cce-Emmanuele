@@ -26,15 +26,15 @@ export const AdminEvents: React.FC = () => {
     loadEvents();
   }, []);
 
-  const loadEvents = async () => {
-    const stored = await storage.getEvents();
+  const loadEvents = () => {
+    const stored = storage.getEvents();
     setEvents(stored || eventsMock);
   };
 
   const saveEvents = async (updatedEvents: Event[]) => {
     await storage.setEvents(updatedEvents);
     setEvents(updatedEvents);
-    await loadEvents();
+    loadEvents();
   };
 
   const handleAdd = () => {

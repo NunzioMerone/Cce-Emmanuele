@@ -45,8 +45,8 @@ export const AdminPlaylists: React.FC = () => {
     setPlaylists(stored || playlistsMock);
   };
 
-  const savePlaylists = (updatedPlaylists: Playlist[]) => {
-    storage.setPlaylists(updatedPlaylists);
+  const savePlaylists = async (updatedPlaylists: Playlist[]) => {
+    await storage.setPlaylists(updatedPlaylists);
     setPlaylists(updatedPlaylists);
     loadPlaylists();
   };

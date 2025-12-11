@@ -30,9 +30,10 @@ export const AdminMinistries: React.FC = () => {
     setMinistries(stored || ministriesMock);
   };
 
-  const saveMinistries = (updatedMinistries: Ministry[]) => {
-    storage.setMinistries(updatedMinistries);
+  const saveMinistries = async (updatedMinistries: Ministry[]) => {
+    await storage.setMinistries(updatedMinistries);
     setMinistries(updatedMinistries);
+    loadMinistries();
   };
 
   const handleAdd = () => {

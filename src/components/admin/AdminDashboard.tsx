@@ -18,7 +18,6 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   });
 
   useEffect(() => {
-    // Load stats
     const events = storage.getEvents() || eventsMock;
     const ministries = storage.getMinistries() || ministriesMock;
     const playlists = storage.getPlaylists() || playlistsMock;
