@@ -11,13 +11,13 @@ export const AdminLoginPage: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // CAMBIA QUESTE CREDENZIALI!
-    if (username === 'tuoNuovoUsername' && password === 'tuaNuovaPassword123!') {
-      localStorage.setItem('adminAuth', 'true');
-      navigate('/admin');
+
+    // Credenziali admin
+    if (username === "admin" && password === "CceEmmanuele") {
+      localStorage.setItem("adminAuth", "true");
+      navigate("/admin");
     } else {
-      setError('Credenziali non valide');
+      setError("Credenziali non valide");
     }
   };
 
