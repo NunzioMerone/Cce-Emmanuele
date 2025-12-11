@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../components/common/Input";
 import { Button } from "../components/common/Button";
+import { firebaseAuth } from "../services/firebase";
 
 export const AdminLoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -10,33 +11,25 @@ export const AdminLoginPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
     setIsLoading(true);
     setError("");
 
-    // Debug: mostra cosa sta confrontando
-    console.log("Username inserito:", username);
-    console.log("Password inserita:", password);
-    console.log("Username corretto:", "admin");
-    console.log("Password corretta:", "CceEmmanuele");
+    try {
+      // Login con Firebase Authentication
+      await firebaseAuth.login(username, password);
 
-    // Timeout per simulare il controllo
-    setTimeout(() => {
-      if (username.trim() === "admin" && password === "CceEmmanuele") {
-        console.log("✅ Login riuscito!");
-        localStorage.setItem("adminAuth", "true");
-
-        // Usa replace invece di navigate per forzare il redirect
-        window.location.href = "/Cce-Emmanuele/admin";
-      } else {
-        console.log("❌ Credenziali errate");
-        setError("Username o password non validi");
-        setIsLoading(false);
-      }
-    }, 500);
+      console.log("✅ Login riuscito!");
+      localStorage.setItem("adminAuth", "true");
+      window.location.href = "/Cce-Emmanuele/admin";
+    } catch (error: any) {
+      console.log("❌ Credenziali errate");
+      setError("Username o password non validi");
+      setIsLoading(false);
+    }
   };
 
   return (
