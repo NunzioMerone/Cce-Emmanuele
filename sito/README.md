@@ -84,7 +84,7 @@ Ogni sezione ha un componente e un CSS dedicati. I collegamenti «La nostra fede
 
 ### Approfondimenti di Chi siamo
 
-`la-nostra-fede.html` presenta integralmente le sezioni 1–4 della dichiarazione fornita dall’utente: Orientamento Ecclesiologico, Fondamento della fede con i dieci punti della sezione 2, Distintivi dottrinali con i quattro argomenti e Dichiarazioni etiche 4.1–4.5. Le due note bibliografiche sono collegate ai rispettivi richiami. Sono esclusi l’intestazione relativa al governo interno, le sezioni amministrative, le clausole di modifica del regolamento e le appendici. Non viene distribuito il Word completo.
+`la-nostra-fede.html` presenta integralmente Orientamento Ecclesiologico e Fondamento della fede, con introduzioni, dieci punti della sezione 2 e riferimenti biblici originali. Su richiesta dell’utente, Distintivi dottrinali e Dichiarazioni etiche sono esclusi sia dai contenuti sia dall’indice. Restano esclusi anche l’intestazione relativa al governo interno, le sezioni amministrative, le clausole di modifica del regolamento e le appendici. I documenti originali sono conservati separatamente; il Word completo non viene distribuito.
 
 `identita-vita-comunitaria.html` comprende entrambe le parti del pieghevole, ciascuna con introduzione completa e cinque argomenti, tutte le citazioni e i crediti originali. Il secondo gruppo usa un delicato fondo avorio. Il PDF originale, senza alterazioni, si trova in `public/assets/documents/identita-vita-comunitaria.pdf` ed è raggiungibile dal collegamento finale.
 
