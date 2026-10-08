@@ -2,6 +2,7 @@
 
 /** Fotografie autentiche fornite dalla chiesa; originali conservati in materiali/foto-chiesa. */
 const photos = {
+  smile: { src: 'assets/images/chiesa/sorriso-in-chiesa.webp', width: 1600, height: 900, alt: 'Un giovane della comunità sorride nella sala della Chiesa Emmanuele' },
   welcome: { src: 'assets/images/chiesa/benvenuto.webp', width: 1600, height: 1200, alt: 'Quattro persone insieme nella Chiesa Emmanuele' },
   worship: { src: 'assets/images/chiesa/lode.webp', width: 1600, height: 1200, alt: 'Canto e musica durante la lode nella Chiesa Emmanuele' },
   meeting: { src: 'assets/images/chiesa/incontro-in-chiesa.webp', width: 1600, height: 1200, alt: 'La comunità riunita per un incontro nella sala della chiesa' },
@@ -14,8 +15,8 @@ const photos = {
 
 /** @type {{intervalMs:number, photos:HeroPhoto[]}} */
 export const homeSlideshow = {
-  intervalMs: 7000,
-  photos: [photos.welcome, photos.worship, photos.meeting, photos.table, photos.friends],
+  intervalMs: 3000,
+  photos: [photos.smile, photos.welcome, photos.worship, photos.meeting, photos.table, photos.friends],
 };
 
 /** @type {Array<HeroPhoto & {position:'welcome'|'worship'|'word'|'community'}>} */
