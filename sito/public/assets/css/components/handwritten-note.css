@@ -6,6 +6,6 @@
   font-display: swap;
 }
 
-.handwritten-note { position: relative; margin: 0; color: var(--gold); font: 400 42px/1.15 Allura, 'Snell Roundhand', cursive; }
+.handwritten-note { position: relative; margin: 0; color: var(--accent-strong); font: 400 42px/1.15 Allura, 'Snell Roundhand', cursive; }
 .handwritten-note > span { position: relative; z-index: 1; }
 .handwritten-note > svg { position: absolute; width: calc(100% + 80px); height: 30px; left: -40px; bottom: -7px; fill: none; stroke: currentColor; stroke-width: 1; pointer-events: none; }

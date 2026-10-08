@@ -3,6 +3,8 @@ import { escapeHtml } from '../utils/html.mjs';
 /** @param {string} name @param {string} [className] */
 export function icon(name, className = '') {
   const paths = {
+    music: '<path d="M9 18V5l12-3v13M9 9l12-3"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="18" cy="15" rx="3" ry="2.5"/>',
+    prayer: '<path d="M12 15V4c0-2-2-2-2 0L8 12l-4 6 5 3 3-6Zm0 0V4c0-2 2-2 2 0l2 8 4 6-5 3-3-6ZM4 18l-2 3m18-3 2 3"/>',
     target: '<circle cx="11" cy="13" r="8"/><circle cx="11" cy="13" r="4"/><path d="m11 13 9-9m-4 0h4v4"/>',
     binoculars: '<path d="M3 15 6 4h3l2 11M21 15 18 4h-3l-2 11M9 7h6M9 13h6"/><circle cx="6" cy="17" r="4"/><circle cx="18" cy="17" r="4"/>',
     leaf: '<path d="M20 3c0 10-2 17-10 17a7 7 0 0 1-6-10c3-4 9-4 16-7ZM4 22c2-6 6-10 12-14"/>',

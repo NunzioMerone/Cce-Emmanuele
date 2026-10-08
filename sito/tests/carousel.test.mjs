@@ -1,8 +1,22 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { carouselLayout, nearestCarouselPosition } from '../src/utils/carousel.mjs';
+import { carouselLayout, nearestCarouselPosition, carouselIndicatorIndex } from '../src/utils/carousel.mjs';
 
 const layout = (width, count = 3) => carouselLayout({ width, count, minItemWidth: 260, maxVisible: 3, gap: 22 });
+
+test('Tre viste selezionano tre indicatori distinti, senza mantenere il centrale attivo alla fine', () => {
+  assert.deepEqual([0, 1, 2].map(index => carouselIndicatorIndex(index, 3)), [0, 1, 2]);
+  assert.deepEqual([0, 1].map(index => carouselIndicatorIndex(index, 2)), [0, 2]);
+  assert.equal(carouselIndicatorIndex(0, 1), 0);
+});
+
+test('Le raccolte lunghe mantengono tre indicatori e selezionano soltanto l’ultimo alla fine', () => {
+  for (const count of [4, 10, 12, 100]) {
+    assert.equal(carouselIndicatorIndex(0, count), 0);
+    for (let index = 1; index < count - 1; index++) assert.equal(carouselIndicatorIndex(index, count), 1);
+    assert.equal(carouselIndicatorIndex(count - 1, count), 2);
+  }
+});
 
 test('Il carosello passa da tre card a due appena manca spazio, senza una seconda riga', () => {
   assert.equal(layout(824).visible, 3);

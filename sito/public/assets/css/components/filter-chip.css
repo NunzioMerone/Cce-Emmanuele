@@ -12,9 +12,9 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #ebe1cd;
+  background: var(--accent-soft);
   color: var(--ink);
-  border: 1px solid #dbcbab;
+  border: 1px solid var(--accent-line);
   border-radius: 100px;
   padding: 10px 14px;
   font-size: 12px;

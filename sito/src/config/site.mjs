@@ -24,12 +24,21 @@ export const church = {
   publicUrl: '',
 };
 
+/** Risorse derivate dal logo approvato, condivise da tutte le pagine. */
+export const branding = {
+  logo: { src: 'assets/images/logo-emmanuele-2026.svg', width: 1180, height: 239 },
+  favicon: { svg: 'assets/images/favicon-emmanuele-2026.svg', png: 'assets/images/favicon-emmanuele-2026-32.png' },
+};
+
 /** Segnaposto visivi, senza collegamenti a recapiti non confermati. */
 export const contactPlaceholders = { email: 'chiesa@example.org', phone: '+39 XXX XXX XXXX' };
 
 export const navigation = [
   { slug: 'index', label: 'Home' },
-  { slug: 'chi-siamo', label: 'Chi siamo' },
+  { slug: 'chi-siamo', label: 'Chi siamo', children: [
+    { slug: 'la-nostra-fede', label: 'La nostra fede' },
+    { slug: 'identita-vita-comunitaria', label: 'Identità e vita comunitaria' },
+  ] },
   { slug: 'prediche', label: 'Prediche' },
   { slug: 'contatti', label: 'Contatti' },
 ];

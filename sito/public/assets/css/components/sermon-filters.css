@@ -38,7 +38,7 @@
   justify-content: space-between;
   gap: 16px;
   padding: 30px 32px 22px;
-  background: radial-gradient(ellipse at top left, #f5ecd9, transparent 85%);
+  background: radial-gradient(ellipse at top left, var(--accent-tint), transparent 85%);
   flex-shrink: 0;
 }
 
@@ -188,12 +188,12 @@
 }
 
 .filter-option:has(input:checked) {
-  background: #eee5d3;
-  border-color: #ad915b;
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
 }
 
 .filter-option:has(input:focus-visible) {
-  outline: 2px solid #a16b16;
+  outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
 }
 
@@ -238,7 +238,7 @@
   place-items: center;
   border-radius: 50%;
   background: #eee5d5;
-  color: #856b3d;
+  color: var(--accent-strong);
   flex-shrink: 0;
 }
 
@@ -394,8 +394,8 @@
 
 @media (hover: hover) {
   .filter-option:hover {
-    border-color: #c6b18a;
-    background: #f4eddf;
+    border-color: var(--accent-line);
+    background: var(--accent-tint);
   }
 
 }

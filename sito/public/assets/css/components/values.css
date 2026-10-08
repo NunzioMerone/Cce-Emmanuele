@@ -19,7 +19,7 @@
 .value-top .icon {
   width: 31px;
   height: 31px;
-  color: #938055;
+  color: var(--accent-strong);
 }
 
 .value-top span {

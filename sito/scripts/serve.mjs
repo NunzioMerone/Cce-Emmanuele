@@ -19,7 +19,7 @@ const catalog = new CatalogService({
   ttlMs: cacheSeconds * 1000,
   cacheFile: fileURLToPath(new URL('../.cache/youtube.json', import.meta.url)),
 });
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.ttf': 'font/ttf', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.ttf': 'font/ttf', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.pdf': 'application/pdf' };
 const server = http.createServer(async (request, response) => {
   if (request.url?.split('?')[0] === '/api/contact') return contactHandler(request, response);
   if (!['GET', 'HEAD'].includes(request.method || '')) {

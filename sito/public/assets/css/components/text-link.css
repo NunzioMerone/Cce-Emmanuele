@@ -19,7 +19,7 @@
 }
 
 .text-link:is(:hover, :focus-visible) {
-  color: #8c6723;
+  color: var(--accent-strong);
 }
 
 .text-link--feature {

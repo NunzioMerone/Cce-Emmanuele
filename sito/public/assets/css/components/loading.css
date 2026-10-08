@@ -18,7 +18,7 @@
 .catalog-feedback-actions a { text-decoration: underline; text-underline-offset: 4px; }
 .catalog-state { display: grid; align-content: center; min-height: 250px; padding: 28px; border: 1px solid var(--warm-line); border-radius: var(--featured-card-radius); background: var(--card); color: var(--warm-muted); }
 img[data-image-state="error"] { opacity: 0; }
-.video-no-thumbnail { display: grid; place-items: center; height: 100%; width: 100%; color: #dfd8c9; font-size: 12px; background: #193650; }
+.video-no-thumbnail { display: grid; place-items: center; height: 100%; width: 100%; color: #dfd8c9; font-size: 12px; background: var(--brand-blue); }
 @keyframes skeleton-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
 @media (max-width: 1050px) { .sermon-skeleton-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 800px) { .sermon-skeleton-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

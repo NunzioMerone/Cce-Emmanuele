@@ -27,7 +27,7 @@
 }
 
 .invitation .eyebrow {
-  color: #d3b676;
+  color: var(--accent-light);
   margin-bottom: 17px;
 }
 

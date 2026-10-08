@@ -1,11 +1,13 @@
-/** @typedef {{src:string, alt:string, width:number, height:number, caption?:string}} CommunityPhoto */
+/** @typedef {{src:string, alt:string, width:number, height:number, caption?:string, source?:string, author?:string}} CommunityPhoto */
 
-// Layout copy is intentionally provisional until the pastors supply their account.
+// Contenuti forniti dall’utente nel riferimento della pagina Chi siamo.
 export const aboutCopy = {
-  short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  long: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  brief: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  hero: 'Siamo una comunità di persone che hanno trovato in Gesù Cristo il senso della vita e la salvezza. Ci unisce il desiderio di conoscerlo sempre di più e di condividere con altri il messaggio del Vangelo.',
+  mission: 'Desideriamo aiutare chi già crede a crescere nella conoscenza di Gesù e accompagnare chi ancora non lo conosce alla scoperta del Vangelo. Per questo ascoltiamo e approfondiamo la Bibbia, preghiamo insieme e ci incoraggiamo nella vita di ogni giorno.',
+  name: 'Emmanuele significa “Dio con noi”. Il nostro nome esprime la fiducia nella presenza e nell’opera di Dio nella vita dei credenti e quando ci riuniamo come chiesa.',
+  faith: 'Crediamo in un solo Dio, Padre, Figlio e Spirito Santo, e riconosciamo nella Bibbia la sua Parola e l’autorità per la nostra fede e la nostra vita.',
+  territory: 'Desideriamo vedere sempre più persone conoscere Cristo. Guardiamo ai paesi vicini a Bacoli con il desiderio di contribuire alla nascita di nuove comunità e di sostenere la diffusione del Vangelo anche oltre la nostra città.',
+  invitation: 'Desideri conoscere la Bibbia, Gesù e il messaggio del Vangelo? Hai dubbi o domande sulla fede? Sarai il benvenuto.',
 };
 
 /** @type {Record<string, CommunityPhoto>} */
@@ -21,30 +23,45 @@ export const communityPhotos = {
 export const bacoliPhoto = {
   src: 'assets/images/about/bacoli-panorama.webp', width: 1600, height: 1200,
   alt: 'Panorama di Bacoli e del porto di Miseno, con Punta Pennata, visto da Capo Miseno',
+  caption: 'Panorama di Bacoli e Miseno',
   author: 'Denghiù', source: 'https://commons.wikimedia.org/wiki/File:CapoMisenoBacoli3341TAW.JPG',
 };
 
-export const missionVision = [
-  { title: 'La nostra missione', icon: 'target', description: aboutCopy.short },
-  { title: 'La nostra visione', icon: 'binoculars', description: aboutCopy.short },
-];
 export const beliefs = [
-  { title: 'La Bibbia', icon: 'book', description: aboutCopy.brief },
-  { title: 'Gesù Cristo', icon: 'cross', description: aboutCopy.brief },
-  { title: 'La Chiesa', icon: 'people', description: aboutCopy.brief },
-  { title: 'Le persone', icon: 'heart', description: aboutCopy.brief },
-  { title: 'Un impatto reale', icon: 'leaf', description: aboutCopy.brief },
+  { title: 'La Parola di Dio', icon: 'book', description: 'La Bibbia è la guida sicura per conoscere Dio, vivere nella sua volontà e affrontare la vita di ogni giorno.' },
+  { title: 'La preghiera', icon: 'prayer', description: 'Crediamo nella preghiera come relazione viva con Dio, per crescere, sostenerci e intercedere per gli altri.' },
+  { title: 'La lode e l’adorazione', icon: 'music', description: 'Lo lodiamo con gratitudine per ciò che è e per ciò che fa, con il cuore, nella vita quotidiana e insieme come chiesa.' },
+  { title: 'La comunione', icon: 'people', description: 'Siamo una famiglia spirituale che si incoraggia a vicenda, condivide il cammino di fede e serve insieme nella chiesa e nella comunità.' },
 ];
-// Labels reserve the timeline design without presenting unconfirmed dates as facts.
+export const historicBacoliPhoto = {
+  src: 'assets/images/about/bacoli-storica.webp', width: 960, height: 768,
+  alt: 'Panorama storico di Miseno e Bacoli visto da Capo Miseno, fotografia di Giorgio Sommer',
+  caption: 'Panorama storico di Bacoli e Miseno',
+  author: 'Giorgio Sommer',
+  source: 'https://commons.wikimedia.org/wiki/File:Sommer,_Giorgio_(1834-1914)_-_n._2568_-_Panorama_da_Capo_Miseno.jpg',
+};
+
+// Le immagini illustrano il racconto; le foto della comunità non sono documenti delle date indicate.
+/** @type {{label:string, title:string, description:string, photo:CommunityPhoto}[]} */
 export const churchTimeline = [
-  { label: 'Le origini', title: 'Lorem ipsum dolor', description: aboutCopy.short },
-  { label: 'Insieme', title: 'Lorem ipsum dolor', description: aboutCopy.short },
-  { label: 'Il cammino', title: 'Lorem ipsum dolor', description: aboutCopy.short },
-  { label: 'Oggi', title: 'Lorem ipsum dolor', description: aboutCopy.short },
-];
-export const communityGallery = [
-  { ...communityPhotos.table, caption: 'Condividere' },
-  { ...communityPhotos.worship, caption: 'Lodare insieme' },
-  { ...communityPhotos.community, caption: 'Crescere in famiglia' },
-  { ...communityPhotos.word, caption: 'Intorno alla Parola' },
+  {
+    label: 'Fine anni ’70', title: 'Le prime testimonianze',
+    description: 'Alla fine degli anni Settanta alcuni bacolesi accolgono il messaggio del Vangelo e iniziano a condividerlo con i propri familiari e conoscenti.\n\nNasce così la prima testimonianza evangelica a Bacoli: persone che hanno trovato in Cristo il senso della vita e la salvezza e desiderano farlo conoscere ad altri. Da queste origini prenderà forma anche la nostra comunità.',
+    photo: historicBacoliPhoto,
+  },
+  {
+    label: 'Anni ’80', title: 'La Chiesa Emmanuele',
+    description: 'Negli anni Ottanta la prima comunità evangelica si divide in due chiese, una delle quali è la Chiesa Emmanuele.\n\nIl nome significa «Dio con noi» ed esprime ciò su cui si fonda la nostra vita comunitaria: la fiducia nella presenza e nell’opera di Dio, nella vita di ogni credente e quando ci riuniamo per ascoltare la sua Parola, pregare e adorarlo.',
+    photo: communityPhotos.word,
+  },
+  {
+    label: '1986', title: 'L’arrivo di Rod Jones',
+    description: 'Durante gli studi alla London School of Theology, una visita nel Napoletano colpisce profondamente Rod Jones e lo porta a scegliere di trasferirsi qui.\n\nDal 1986 si dedica a tempo pieno al servizio pastorale e missionario nei Campi Flegrei, in particolare tra Bacoli e Pozzuoli. Il suo percorso si intreccia così con la storia della nostra chiesa e con l’annuncio del Vangelo nel territorio.',
+    photo: bacoliPhoto,
+  },
+  {
+    label: '2022', title: 'La sede nel centro storico',
+    description: 'Dal 2022 la nostra sede è in via Gaetano De Rosa 81, nel centro storico di Bacoli, nella stessa zona in cui la chiesa aveva mosso i suoi primi passi.\n\nQui continuiamo a riunirci per ascoltare la Parola di Dio, pregare e lodare il Signore, accogliendo anche chi desidera conoscere Gesù, approfondire la Bibbia o fare domande sulla fede.',
+    photo: communityPhotos.gathering,
+  },
 ];

@@ -14,7 +14,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgb(11 36 69 / 8%);
+  background: rgb(var(--brand-blue-rgb) / 8%);
   pointer-events: none;
 }
 

@@ -1,4 +1,4 @@
-import { church } from '../config/site.mjs';
+import { church, branding } from '../config/site.mjs';
 import { escapeHtml } from '../utils/html.mjs';
 import { navbar } from '../components/navbar.mjs';
 import { footer } from '../components/footer.mjs';
@@ -23,11 +23,11 @@ ${staticPreview ? '<meta name="sermon-catalog-url" content="assets/data/sermons.
 <meta property="og:title" content="${escapeHtml(title)}">
 <meta property="og:description" content="${escapeHtml(page.description)}">${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}">
 <meta property="og:url" content="${escapeHtml(canonical)}">
-<meta property="og:image" content="${escapeHtml(church.publicUrl.replace(/\/$/, ''))}/assets/images/comunita.webp">` : '<meta name="robots" content="noindex, nofollow">'}<link rel="icon" href="assets/images/favicon-emmanuele-32.png" type="image/png" sizes="32x32"><link rel="icon" href="assets/images/favicon-emmanuele.svg" type="image/svg+xml" sizes="any">
+<meta property="og:image" content="${escapeHtml(church.publicUrl.replace(/\/$/, ''))}/assets/images/comunita.webp">` : '<meta name="robots" content="noindex, nofollow">'}<link rel="icon" href="${escapeHtml(branding.favicon.png)}" type="image/png" sizes="32x32"><link rel="icon" href="${escapeHtml(branding.favicon.svg)}" type="image/svg+xml" sizes="any">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/pages/${page.stylesheet}.css">
 <script type="module" src="assets/js/main.js">
 </script>${page.slug === 'prediche' ? '<script type="module" src="assets/js/pages/sermons.js"></script>' : ''}${page.slug === 'serie' ? '<script type="module" src="assets/js/pages/series.js"></script>' : ''}${page.slug === 'index' ? '<script type="module" src="assets/js/pages/home.js"></script>' : ''}${page.slug === 'contatti' ? '<script type="module" src="assets/js/pages/contact.js"></script>' : ''}</head>
-<body class="page-${escapeHtml(page.slug)}">${navbar(page.navigationSlug || page.slug)}<main id="contenuto" tabindex="-1">${page.render({ staticPreview })}</main>${footer()}</body>
+<body class="page-${escapeHtml(page.slug)}">${navbar(page.navigationSlug || page.slug, page.slug)}<main id="contenuto" tabindex="-1">${page.render({ staticPreview })}</main>${footer()}</body>
 </html>`;
 }

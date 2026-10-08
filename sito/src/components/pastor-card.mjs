@@ -9,7 +9,7 @@ export function pastorCard(pastor, index = 0) {
     : `<span>${icon('phone')}${escapeHtml(contactPlaceholders.phone)}</span>`;
   return `<article class="pastor-card" data-reveal="up" data-reveal-delay="${index * 100}">
     ${pastor.photo ? `<img class="pastor-card-photo" src="${escapeHtml(pastor.photo)}" alt="${escapeHtml(pastor.name)}" width="88" height="88" loading="lazy" decoding="async">` : `<span class="pastor-card-initials" aria-hidden="true">${escapeHtml(initials)}</span>`}
-    <h4>Pastore ${escapeHtml(pastor.name)}</h4>
+    <h4>${escapeHtml(pastor.name)}</h4>
     <div class="pastor-card-phone">${phone}</div>
   </article>`;
 }

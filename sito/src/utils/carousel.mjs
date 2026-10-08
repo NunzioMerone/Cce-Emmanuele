@@ -20,3 +20,10 @@ export function nearestCarouselPosition(offset, positions) {
   });
   return nearest;
 }
+
+/** One of three indicators: start, intermediate views, end.
+ * @param {number} index @param {number} count @returns {0|1|2} */
+export function carouselIndicatorIndex(index, count) {
+  if (count <= 1 || index <= 0) return 0;
+  return index >= count - 1 ? 2 : 1;
+}

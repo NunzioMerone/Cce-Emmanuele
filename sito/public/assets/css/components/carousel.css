@@ -1,6 +1,7 @@
 .carousel {
   --carousel-gap: 22px;
   --carousel-visible: 3;
+  --carousel-dot-idle: #b9b2a6;
   min-width: 0;
 }
 
@@ -35,7 +36,7 @@
   min-height: 40px;
   padding: 0;
   border-radius: 50%;
-  border-color: #d5c5a5;
+  border-color: var(--accent-line);
   background: transparent;
   color: var(--button-primary-bg);
   box-shadow: none;
@@ -48,18 +49,20 @@
 .carousel-arrow.button:disabled { color: #b6afa1; border-color: #e1d9ca; cursor: default; }
 .carousel-arrow.button:disabled .icon { transform: none; }
 
-.carousel-dots { display: flex; align-items: center; gap: 0; }
+.carousel-dots { display: flex; align-items: center; gap: 2px; }
 .carousel-dot { display: grid; place-items: center; width: 26px; height: 40px; padding: 0; border: 0; background: transparent; border-radius: 8px; }
-.carousel-dot:not(.carousel-dot--progress)::before { content: ''; width: 6px; height: 6px; border-radius: 10px; background: #c9c0b0; transition: width .25s, background .25s; }
-.carousel-dot[aria-current="true"]::before { width: 18px; background: var(--button-accent); }
-.carousel-dot:hover::before { background: var(--button-accent); }
-.carousel-dot--progress { width: 30px; }
-.carousel-progress-track { position: relative; width: 18px; height: 6px; overflow: hidden; border-radius: 10px; background: #c9c0b0; transition: width .3s; }
-.carousel-dot--progress[aria-current="true"] .carousel-progress-track { width: 24px; }
-.carousel-progress-fill { position: absolute; inset: 0; background: var(--button-accent); transform: scaleX(var(--carousel-progress, 0)); transform-origin: left; transition: transform .4s ease; }
+.carousel-dot:not(.carousel-dot--progress)::before,
+.carousel-progress-track { width: 7px; height: 7px; border-radius: 20px; background: var(--carousel-dot-idle); transition: width .28s ease, transform .28s ease; }
+.carousel-dot:not(.carousel-dot--progress)::before { content: ''; }
+.carousel-dot[aria-current="true"]::before { width: 19px; background: var(--accent-strong); }
+.carousel-dot:not([aria-current]):hover::before { transform: scale(1.2); }
+.carousel-progress-track { position: relative; overflow: hidden; }
+.carousel-dot--progress[aria-current="true"] .carousel-progress-track { width: 19px; }
+.carousel-progress-fill { position: absolute; inset: 0; background: var(--accent-strong); opacity: 0; }
+.carousel-dot--progress[aria-current="true"] .carousel-progress-fill { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  .carousel-dot::before, .carousel-progress-track, .carousel-progress-fill { transition: none; }
+  .carousel-dot::before, .carousel-progress-track { transition: none; }
 }
 
 @media (max-width: 860px) { .carousel { --carousel-visible: 2; } }

@@ -1,0 +1,19 @@
+.about-territory { position: relative; isolation: isolate; overflow: hidden; background: var(--about-blue); color: #fff; padding-block: 42px 14px; }
+.about-territory-photo { position: absolute; inset: 0; z-index: -1; }
+.about-territory-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 51%; }
+.about-territory-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(var(--brand-blue-rgb) / .93), rgb(var(--brand-blue-rgb) / .75) 35%, rgb(var(--brand-blue-rgb) / .17) 75%), linear-gradient(0deg, rgb(var(--brand-blue-rgb) / .45), transparent); }
+.about-territory-layout { display: flex; justify-content: space-between; gap: 50px; align-items: center; min-height: 215px; }
+.about-territory-copy { max-width: 530px; }
+.page-chi-siamo .about-territory .eyebrow, .page-chi-siamo .about-territory h2 em { color: var(--accent-light); }
+.about-territory h2 { color: white; }
+.about-territory-copy > p:last-child { color: #eef2f6; font-size: 15px; line-height: 1.7; margin-top: 18px; }
+.about-territory-note { color: #fff; font: 38px/1.1 Allura, cursive; transform: rotate(-7deg); text-shadow: 0 2px 12px var(--brand-blue); align-self: flex-end; }
+.about-territory-note::after { content: ''; display: block; width: 60px; height: 2px; background: var(--button-gold-bg); margin-top: 14px; }
+.about-territory .about-photo-credit { color: #e2e8ef; margin-top: 16px; }
+@media (max-width: 900px) { .about-territory-copy { max-width: 460px; } .about-territory-note { font-size: 30px; } }
+@media (max-width: 620px) {
+  .about-territory { padding-top: 32px; }
+  .about-territory-layout { display: block; }
+  .about-territory-note { width: fit-content; margin: 28px 0 0 auto; }
+  .about-territory-photo::after { background: linear-gradient(90deg, rgb(var(--brand-blue-rgb) / .9), rgb(var(--brand-blue-rgb) / .5)), linear-gradient(0deg, rgb(var(--brand-blue-rgb) / .35), transparent); }
+}

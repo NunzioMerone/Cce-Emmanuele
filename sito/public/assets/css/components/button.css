@@ -69,7 +69,7 @@ page styles only position the component. */
 .button--accent-outline:is(:hover, :focus-visible) .button-icon--play {
   color: var(--button-accent-hover-color);
   transform: scale(1.1);
-  box-shadow: 0 0 0 6px rgb(194 154 72 / 20%);
+  box-shadow: 0 0 0 6px rgb(var(--brand-orange-rgb) / 20%);
 }
 
 .button--accent-outline:is(:hover, :focus-visible) .button-icon--play path {
@@ -91,7 +91,7 @@ page styles only position the component. */
 }
 
 .button--gold { background: var(--button-gold-bg); color: var(--button-gold-color); }
-.button--gold:is(:hover, :focus-visible):not(:disabled) { color: var(--button-gold-hover-color); }
+.button--gold:is(:hover, :focus-visible):not(:disabled) { background: var(--accent-light); color: var(--button-gold-hover-color); }
 
 .button--light:is(:hover, :focus-visible):not(:disabled) {
   color: var(--button-accent-color);
@@ -104,7 +104,7 @@ page styles only position the component. */
 }
 
 .button--text:is(:hover, :focus-visible):not(:disabled) {
-  color: #8c6723;
+  color: var(--accent-strong);
 }
 
 .button--small {

@@ -3,6 +3,8 @@ import { about } from './about.mjs';
 import { contact } from './contact.mjs';
 import { sermonsPage } from './sermons.mjs';
 import { seriesPage } from './series.mjs';
+import { faithPage } from './faith.mjs';
+import { identityPage } from './identity.mjs';
 
 export const pages = [
   {
@@ -18,6 +20,22 @@ export const pages = [
     title: 'Chi siamo',
     description: 'Conosci la Chiesa Cristiana Evangelica Emmanuele a Bacoli: la nostra fede, la visione, i pastori e la vita della comunità. Conoscere Cristo e farlo conoscere.',
     render: about,
+  },
+  {
+    slug: 'la-nostra-fede',
+    navigationSlug: 'chi-siamo',
+    stylesheet: 'reading',
+    title: 'La nostra fede',
+    description: 'Orientamento ecclesiologico, fondamento della fede, distintivi dottrinali e dichiarazioni etiche della Chiesa Cristiana Evangelica Emmanuele.',
+    render: faithPage,
+  },
+  {
+    slug: 'identita-vita-comunitaria',
+    navigationSlug: 'chi-siamo',
+    stylesheet: 'reading',
+    title: 'Identità e vita comunitaria',
+    description: 'La nostra identità e la nostra vita comunitaria: il pieghevole completo con le citazioni bibliche e le attribuzioni originali.',
+    render: identityPage,
   },
   {
     slug: 'prediche',

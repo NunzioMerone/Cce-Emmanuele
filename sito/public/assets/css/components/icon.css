@@ -9,8 +9,8 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: #ece6d8;
-  color: #80652f;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
   border-radius: 50%;
   flex-shrink: 0;
 }

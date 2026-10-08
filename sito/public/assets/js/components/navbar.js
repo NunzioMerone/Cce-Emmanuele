@@ -1,3 +1,5 @@
+import { initializeNavigationDropdown } from './navigation-dropdown.js';
+
 export function initializeNavbar() {
   const header = document.querySelector('.site-header');
   if (header instanceof HTMLElement) {
@@ -23,16 +25,23 @@ export function initializeNavbar() {
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#navigazione');
   if (toggle instanceof HTMLButtonElement && nav instanceof HTMLElement) {
+    const dropdowns = [...nav.querySelectorAll('.navigation-dropdown')]
+      .filter(root => root instanceof HTMLDetailsElement)
+      .map(initializeNavigationDropdown)
+      .filter(Boolean);
     nav.classList.add('is-enhanced');
     toggle.hidden = false;
     const closeMenu = () => {
       toggle.setAttribute('aria-expanded', 'false');
       nav.classList.remove('is-open');
+      dropdowns.forEach(dropdown => dropdown.close());
     };
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') !== 'true';
-      toggle.setAttribute('aria-expanded', String(open));
-      nav.classList.toggle('is-open', open);
+      if (open) {
+        toggle.setAttribute('aria-expanded', 'true');
+        nav.classList.add('is-open');
+      } else closeMenu();
     });
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && nav.classList.contains('is-open')) {

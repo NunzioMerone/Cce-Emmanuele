@@ -1,6 +1,6 @@
 .sermon-preview {
-  --preview-ink: #0b2445;
-  --preview-gold: #a57122;
+  --preview-ink: var(--brand-blue);
+  --preview-gold: var(--accent-strong);
   background: #faf7f1;
   padding-block: 72px 80px;
 }

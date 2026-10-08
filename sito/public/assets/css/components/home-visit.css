@@ -4,25 +4,25 @@
   overflow: hidden;
   min-height: 632px;
   padding-block: 76px 54px;
-  background: #102741;
+  background: var(--brand-blue);
   color: var(--white);
 }
-.home-welcome::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url("../../images/home/welcome-waves.svg") center / 100% 100% no-repeat; pointer-events: none; }
+.home-welcome::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url("../../images/home/welcome-waves-brand.svg") center / 100% 100% no-repeat; pointer-events: none; }
 .home-welcome-layout { display: block; }
 .home-welcome-copy { width: 48.5%; max-width: 530px; }
-.home-welcome .eyebrow { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; color: #e6c48a; }
-.home-welcome .gold-line { width: 60px; background: #e6c48a; }
+.home-welcome .eyebrow { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; color: var(--accent-light); }
+.home-welcome .gold-line { width: 60px; background: var(--accent-light); }
 .home-welcome h2 { color: #fffdf9; font-size: clamp(44px, 5.9vw, 70px); line-height: 1.02; }
-.home-welcome h2 em { color: #e6c48a; }
+.home-welcome h2 em { color: var(--accent-light); }
 .home-welcome-description { max-width: 450px; margin-block: 24px; font-size: 18px; line-height: 1.5; color: #e4e8ed; }
 .home-welcome-quote { position: relative; margin: 42px 0 0; padding-left: 40px; }
-.home-welcome-quote::before { content: ''; position: absolute; left: 0; top: 10px; width: 28px; height: 1px; background: #e6c48a; }
+.home-welcome-quote::before { content: ''; position: absolute; left: 0; top: 10px; width: 28px; height: 1px; background: var(--accent-light); }
 .home-welcome-quote blockquote { margin: 0; font: italic 16px/1.5 var(--serif); color: #dce0e6; }
 .home-welcome-quote figcaption { margin-top: 6px; font-size: 9px; text-transform: uppercase; letter-spacing: .2em; color: #d1d7df; }
 .home-welcome-visual { position: absolute; top: 52px; bottom: 74px; right: 0; width: 47.6%; margin: 0; }
 .home-welcome-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 35%; border-radius: min(17vw, 190px) 0 0 min(17vw, 190px); }
-.home-welcome-signature { position: absolute; right: 24px; bottom: -27px; width: 330px; text-align: center; color: #e6c48a; font-size: 54px; white-space: nowrap; transform: rotate(-12deg); }
-.home-welcome-signature > span { text-shadow: 0 1px 10px rgb(13 36 62 / 55%); }
+.home-welcome-signature { position: absolute; right: 24px; bottom: -27px; width: 330px; text-align: center; color: var(--accent-light); font-size: 54px; white-space: nowrap; transform: rotate(-12deg); }
+.home-welcome-signature > span { text-shadow: 0 1px 10px rgb(var(--brand-blue-rgb) / 55%); }
 
 .home-visit-details { position: relative; isolation: isolate; overflow: hidden; padding-block: 58px 54px; background: #faf8f3; }
 .home-visit-details::before, .home-visit-details::after { content: ''; position: absolute; z-index: -1; border-radius: 50%; background: #eee5d5; opacity: .4; pointer-events: none; }
@@ -35,22 +35,22 @@
 .visit-section-heading { margin-bottom: 26px; }
 .visit-section-heading .eyebrow { display: flex; align-items: center; gap: 18px; margin-bottom: 15px; color: var(--button-accent); }
 .visit-section-heading .gold-line { width: 48px; }
-.visit-section-heading h2, .visit-section-heading h3 { font: 400 clamp(38px, 4.1vw, 50px)/1.08 var(--serif); letter-spacing: -.045em; color: #0b2445; }
+.visit-section-heading h2, .visit-section-heading h3 { font: 400 clamp(38px, 4.1vw, 50px)/1.08 var(--serif); letter-spacing: -.045em; color: var(--brand-blue); }
 .visit-section-heading > p:not(.eyebrow) { margin-top: 12px; font-size: 15px; line-height: 1.7; }
 .visit-location-quote { grid-area: quote; margin: 0; text-align: center; }
 .visit-location-quote blockquote { margin: 0; color: #625e71; font: italic 16px/1.5 var(--serif); }
 .visit-location-quote figcaption { margin-top: 10px; color: var(--warm-muted); text-transform: uppercase; letter-spacing: .2em; font-size: 9px; }
 .visit-social-profiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.visit-social-profile { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 5px; color: #0b2445; }
-.visit-social-icon { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin-bottom: 6px; border-radius: 50%; background: linear-gradient(135deg, #c7a15e, #a8772f); color: #fff; transition: background .3s, color .3s; }
+.visit-social-profile { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 5px; color: var(--brand-blue); }
+.visit-social-icon { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin-bottom: 6px; border-radius: 50%; background: var(--accent-fill); color: var(--brand-blue); transition: background .3s, color .3s; }
 .visit-social-icon .icon { width: 28px; height: 28px; }
 .visit-social-profile strong { font-size: 16px; font-weight: 600; }
 .visit-social-profile > span:last-child { font-size: 12px; color: var(--muted); }
-.visit-social-profile:is(:hover, :focus-visible) .visit-social-icon { background: #17354d; color: #e9ce9d; }
-.visit-pastors-section { display: flex; flex-direction: column; flex: 1; margin-top: 32px; padding-top: 28px; border-top: 1px solid #e4d2af; }
+.visit-social-profile:is(:hover, :focus-visible) .visit-social-icon { background: var(--brand-blue); color: var(--accent-light); }
+.visit-pastors-section { display: flex; flex-direction: column; flex: 1; margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--accent-line); }
 .visit-pastors-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: auto; }
 .visit-listening-note { grid-area: note; padding-inline: 18px; text-align: right; }
-.visit-listening-note .handwritten-note { display: inline-block; color: #b2853d; font-size: 42px; }
+.visit-listening-note .handwritten-note { display: inline-block; color: var(--accent-strong); font-size: 42px; }
 
 @media (max-width: 1100px) {
   .home-welcome { min-height: 610px; padding-block: 68px 54px; }

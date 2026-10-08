@@ -1,17 +1,17 @@
 .site-footer { padding-top: 36px; background: #fffefd; border-top: 1px solid var(--warm-line); }
 .footer-grid { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-bottom: 28px; }
 .footer-brand { display: inline-flex; flex-shrink: 0; }
-.footer-brand img { width: 200px; }
+.footer-brand img { width: 224px; }
 .footer-navigation { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 28px; font-size: 13px; font-weight: 500; color: var(--button-primary-bg); }
 .footer-navigation a:is(:hover, :focus-visible), a.footer-email:is(:hover, :focus-visible) { color: var(--button-accent); }
 .footer-socials { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.footer-socials a { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #dcc79f; border-radius: 50%; background: #faf5e9; color: var(--button-accent-color); transition: color .25s, background-color .25s, border-color .25s; }
+.footer-socials a { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--accent-line); border-radius: 50%; background: var(--accent-tint); color: var(--button-accent-color); transition: color .25s, background-color .25s, border-color .25s; }
 .footer-socials .icon { width: 20px; height: 20px; }
 .footer-socials a:is(:hover, :focus-visible) { background: var(--button-primary-bg); border-color: var(--button-primary-bg); color: var(--button-gold-bg); }
 .footer-bottom { border-top: 1px solid var(--warm-line); display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-block: 20px; color: var(--muted); font-size: 11px; }
 .footer-email { display: inline-flex; align-items: center; gap: 10px; }
 .footer-email .icon { width: 18px; height: 18px; color: var(--button-accent); }
-@media (max-width: 860px) { .footer-grid { gap: 24px; } .footer-navigation { gap: 18px; font-size: 12px; } .footer-brand img { width: 180px; } }
+@media (max-width: 860px) { .footer-grid { gap: 24px; } .footer-navigation { gap: 18px; font-size: 12px; } .footer-brand img { width: 200px; } }
 @media (max-width: 720px) {
   .footer-grid { flex-wrap: wrap; }
   .footer-navigation { justify-content: flex-start; }

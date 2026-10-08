@@ -1,6 +1,6 @@
 @import url("../components/church-map.css");
 
-.page-contatti { --contact-blue: #102e4b; --contact-gold: var(--button-accent); }
+.page-contatti { --contact-blue: var(--brand-blue); --contact-gold: var(--button-accent); }
 .page-contatti main { color: var(--contact-blue); }
 .page-contatti main em { color: var(--contact-gold); }
 .page-contatti .eyebrow { display: flex; align-items: center; gap: 16px; color: var(--contact-gold); font-size: 10px; }
@@ -29,7 +29,7 @@
 .contact-visit-card { background: linear-gradient(145deg, #fffdf9, #f7f1e6); border: 1px solid var(--warm-line); border-radius: 16px; padding: 22px 18px; box-shadow: 0 8px 24px #86632f06; transition: border-color .3s, box-shadow .3s; }
 .contact-visit-card > .icon { width: 49px; height: 49px; padding: 10px; border-radius: 50%; background: #ead6ae45; color: var(--contact-gold); margin-bottom: 15px; transition: background-color .3s, color .3s, transform .3s; }
 @media (hover: hover) and (pointer: fine) {
-  .contact-visit-card:hover { border-color: #c9ac73; box-shadow: 0 10px 28px #86632f14; }
+  .contact-visit-card:hover { border-color: var(--accent-line); box-shadow: 0 10px 28px #86632f14; }
   .contact-visit-card:hover > .icon { background: var(--contact-blue); color: var(--button-gold-bg); transform: rotate(-6deg) scale(1.06); }
 }
 .contact-visit-card h3 { font: 23px/1.15 var(--serif); letter-spacing: -.03em; }
@@ -84,7 +84,7 @@
 .contact-faq-link p { font-size: 12px; margin-bottom: 5px; }
 .contact-faq-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 12px 25px; }
 .contact-question { background: #fffdf9; border: 1px solid var(--warm-line); border-radius: 12px; transition: border-color .25s, box-shadow .25s; }
-.contact-question:hover, .contact-question[open] { border-color: #d0b57e; box-shadow: 0 6px 20px #92724308; }
+.contact-question:hover, .contact-question[open] { border-color: var(--accent-line); box-shadow: 0 6px 20px #92724308; }
 .contact-question summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 19px 20px; font-size: 13px; font-weight: 600; cursor: pointer; }
 .contact-question summary::-webkit-details-marker { display: none; }
 .contact-question-number { color: var(--contact-gold); font: italic 21px/1 var(--serif); flex-shrink: 0; width: 26px; }
@@ -96,13 +96,13 @@
 .contact-question[open] summary { color: var(--contact-gold); }
 .contact-question > p { padding: 0 24px 23px 60px; font-size: 13px; line-height: 1.75; }
 
-.contact-bacoli { position: relative; isolation: isolate; overflow: hidden; background: var(--contact-blue) url("../../images/home/welcome-waves.svg") center / cover; }
+.contact-bacoli { position: relative; isolation: isolate; overflow: hidden; background: var(--contact-blue) url("../../images/home/welcome-waves-brand.svg") center / cover; }
 .contact-bacoli figure { position: absolute; inset: 0 0 0 50%; margin: 0; border-top-left-radius: 130px; overflow: hidden; }
 .contact-bacoli figure img { height: 100%; width: 100%; object-fit: cover; object-position: 50% 53%; }
-.contact-bacoli figure::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #102e4b75, transparent 35%), linear-gradient(0deg, #102e4b99, transparent 70%); }
+.contact-bacoli figure::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(var(--brand-blue-rgb) / 46%), transparent 35%), linear-gradient(0deg, rgb(var(--brand-blue-rgb) / 60%), transparent 70%); }
 .contact-bacoli-layout { min-height: 290px; display: flex; align-items: center; padding-block: 38px; }
 .contact-bacoli-layout > div { max-width: 520px; position: relative; }
-.contact-bacoli .eyebrow, .contact-bacoli h2 em { color: var(--button-gold-bg); }
+.contact-bacoli .eyebrow, .contact-bacoli h2 em { color: var(--accent-light); }
 .contact-bacoli .eyebrow { margin-bottom: 17px; }
 .contact-bacoli h2 { color: white; font-size: clamp(36px, 3.6vw, 49px); }
 .contact-bacoli-layout > div > p:not(.eyebrow) { margin: 18px 0 22px; max-width: 440px; color: #e2e8ed; font-size: 14px; }

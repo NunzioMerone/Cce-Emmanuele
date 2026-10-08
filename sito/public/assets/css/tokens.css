@@ -1,9 +1,20 @@
 :root {
+  /* Official logo colours; darker orange is reserved for text on light surfaces. */
+  --brand-blue: #21285d;
+  --brand-orange: #ed7822;
+  --brand-blue-rgb: 33 40 93;
+  --brand-orange-rgb: 237 120 34;
+  --accent-strong: #a65418;
+  --accent-fill: #dea16f;
+  --accent-light: #f7c8a5;
+  --accent-soft: #fce9da;
+  --accent-tint: #fff4ec;
+  --accent-line: #efc4a4;
   --paper: #faf9f5;
   --soft: #f0efe9;
-  --ink: #201b4d;
+  --ink: var(--brand-blue);
   --muted: #686771;
-  --gold: #c29a48;
+  --gold: var(--brand-orange);
   --line: #dfded6;
   --white: #fff;
   --serif: Georgia, 'Times New Roman', serif;
@@ -15,13 +26,13 @@
   --button-small-height: 44px;
   --button-gap: 14px;
   --button-padding: 22px;
-  --button-primary-bg: #193650;
-  --button-gold-bg: #e6c48a;
-  --button-gold-color: #0b2445;
-  --button-gold-hover-color: #634518;
+  --button-primary-bg: var(--brand-blue);
+  --button-gold-bg: var(--accent-fill);
+  --button-gold-color: var(--brand-blue);
+  --button-gold-hover-color: var(--brand-blue);
   --button-primary-hover-color: var(--gold);
-  --button-accent: #a57122;
-  --button-accent-color: #92621b;
+  --button-accent: var(--accent-strong);
+  --button-accent-color: var(--accent-strong);
   --button-accent-hover-color: var(--button-primary-bg);
   --card-radius: 12px;
   --pastor-avatar-size: 88px;

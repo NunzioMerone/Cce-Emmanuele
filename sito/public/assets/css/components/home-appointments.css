@@ -1,5 +1,5 @@
 .home-appointments {
-  --appointments-ink: #0b2445;
+  --appointments-ink: var(--brand-blue);
   --appointments-gold: var(--button-accent);
   padding-block: 64px 72px;
   background: #fffefd;
@@ -55,7 +55,7 @@
   gap: 24px;
   margin-top: 24px;
   padding: 25px 32px;
-  background: #f5f0e7;
+  background: var(--accent-tint);
   border-radius: var(--card-radius);
 }
 

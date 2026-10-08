@@ -1,16 +1,16 @@
 @import url("../components/handwritten-note.css");
 @import url("../components/about-hero.css");
 @import url("../components/about-community-intro.css");
-@import url("../components/about-vision.css");
 @import url("../components/beliefs.css");
 @import url("../components/about-story.css");
 @import url("../components/pastor-profile.css");
-@import url("../components/community-gallery.css");
+@import url("../components/about-territory.css");
+@import url("../components/about-further-info.css");
 @import url("../components/about-invitation.css");
 
 .page-chi-siamo {
-  --about-blue: #102e4b;
-  --about-gold: #a57122;
+  --about-blue: var(--brand-blue);
+  --about-gold: var(--accent-strong);
   --about-ivory: #f8f6f0;
   --about-edge: max(48px, calc((100vw - var(--container-width)) / 2));
 }
@@ -28,13 +28,19 @@
 }
 .page-chi-siamo main .eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; flex-shrink: 0; }
 .about-section-heading { margin-bottom: 22px; }
-.about-section-heading--center { text-align: center; }
-.about-section-heading--center .eyebrow { justify-content: center; }
-.about-section-heading--center .eyebrow::after { content: ''; width: 28px; height: 1px; background: currentColor; }
+.about-section-heading--split { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
+.about-section-quote { max-width: 390px; margin: 0; color: #6d7180; }
+.about-section-quote p { font: italic 18px/1.5 var(--serif); }
+.about-section-quote cite { display: block; margin-top: 12px; font-style: normal; font-size: 10px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
+.about-section-quote::after, .about-copy-rule { content: ''; display: block; width: 28px; height: 2px; background: var(--about-gold); margin-top: 16px; }
+.about-photo-credit { font-size: 10px; margin-top: 22px; }
+.about-photo-credit a:hover { text-decoration: underline; }
 @media (max-width: 1100px) { .page-chi-siamo { --about-edge: 32px; } }
 @media (max-width: 620px) {
   .page-chi-siamo { --about-edge: 20px; }
   .about-section { padding-block: 32px; }
+  .about-section-heading--split { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .about-section-quote p { font-size: 17px; }
   .page-chi-siamo h2 { font-size: clamp(29px, 8vw, 36px); }
   .page-chi-siamo main .eyebrow { font-size: 9px; gap: 9px; }
 }

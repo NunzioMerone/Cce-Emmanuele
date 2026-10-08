@@ -67,7 +67,7 @@
 }
 
 .catalog-notice {
-  border: 1px solid #d8cbb0;
+  border: 1px solid var(--accent-line);
   border-radius: 18px;
   padding: 22px 25px;
   font-size: 13px;
@@ -101,7 +101,7 @@
 .empty-mark {
   display: block;
   font-size: 38px;
-  color: var(--gold);
+  color: var(--accent-strong);
   margin-bottom: 12px;
 }
 

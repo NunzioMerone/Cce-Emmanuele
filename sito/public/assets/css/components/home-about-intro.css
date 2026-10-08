@@ -1,6 +1,6 @@
 .home-about-intro {
-  --intro-ink: #0b2445;
-  --intro-gold: #a57122;
+  --intro-ink: var(--brand-blue);
+  --intro-gold: var(--accent-strong);
   padding-block: 72px;
   background: #fffefd;
 }
@@ -42,7 +42,7 @@
   aspect-ratio: 1;
   left: -4%;
   bottom: 5%;
-  background: #d8b779;
+  background: var(--accent-line);
 }
 
 .home-about-intro-photo {

@@ -8,9 +8,9 @@ export function aboutHero() {
     <div class="about-hero-photo">${communityPhoto(communityPhotos.community, { eager: true })}</div>
     <div class="container about-hero-layout">
       <div class="about-hero-copy" data-reveal>
-        <p class="eyebrow">Una famiglia, sempre aperta</p>
+        <p class="eyebrow">Chiesa cristiana evangelica a Bacoli</p>
         <h1 id="about-title">Chi <em>siamo</em></h1>
-        <p class="about-hero-description">${escapeHtml(aboutCopy.short)}</p>
+        <p class="about-hero-description">${escapeHtml(aboutCopy.hero)}</p>
         <div class="about-hero-actions">${button({ href: '#storia', label: 'Scopri la nostra storia', variant: 'gold', size: 'small' })}</div>
       </div>
       <p class="about-hero-caption" data-reveal>Insieme<br>per un domani<br>più luminoso</p>

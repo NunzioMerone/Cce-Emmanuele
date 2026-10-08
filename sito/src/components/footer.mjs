@@ -1,4 +1,4 @@
-import { church, navigation, contactPlaceholders } from '../config/site.mjs';
+import { church, navigation, contactPlaceholders, branding } from '../config/site.mjs';
 import { escapeHtml } from '../utils/html.mjs';
 import { currentYear } from '../utils/calendar.mjs';
 import { icon } from './icon.mjs';
@@ -13,7 +13,7 @@ export function footer() {
   ].filter(item => item.url);
   return `<footer class="site-footer">
     <div class="container footer-grid">
-      <a class="footer-brand" href="index.html" aria-label="${escapeHtml(church.name)} — Home"><img src="assets/images/logo-emmanuele-navbar.svg" alt="Chiesa Emmanuele" width="904" height="290" loading="lazy"></a>
+      <a class="footer-brand" href="index.html" aria-label="${escapeHtml(church.name)} — Home"><img src="${escapeHtml(branding.logo.src)}" alt="Chiesa Emmanuele" width="${branding.logo.width}" height="${branding.logo.height}" loading="lazy"></a>
       <nav class="footer-navigation" aria-label="Navigazione nel piè di pagina">${navigation.map(item => `<a href="${item.slug}.html">${item.label}</a>`).join('')}</nav>
       ${socials.length ? `<nav class="footer-socials" aria-label="Seguici sui social">${socials.map(item => `<a href="${escapeHtml(item.url)}" aria-label="${escapeHtml(item.name)} — pagina della chiesa" title="${escapeHtml(item.name)}" target="_blank" rel="noopener noreferrer">${icon(item.symbol)}</a>`).join('')}</nav>` : ''}
     </div>

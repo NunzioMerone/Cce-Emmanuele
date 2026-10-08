@@ -1,6 +1,6 @@
-import { carouselLayout, nearestCarouselPosition } from '../utils/carousel.mjs';
+import { carouselLayout, nearestCarouselPosition, carouselIndicatorIndex } from '../utils/carousel.mjs';
 
-/** @typedef {{refresh:()=>void, destroy:()=>void}} CarouselController */
+/** @typedef {{refresh:()=>void, goTo:(index:number)=>void, destroy:()=>void}} CarouselController */
 /** @type {WeakMap<HTMLElement, CarouselController>} */
 const controllers = new WeakMap();
 
@@ -39,21 +39,26 @@ export function initializeCarousel(root) {
   let enabled = false;
   let scrollFrame = 0;
   let layoutFrame = 0;
+  let layoutWidth = 0;
+  let announcedIndex = -1;
+  let announcedCount = -1;
+  /** @type {Animation|null} */
+  let indicatorAnimation = null;
   let suppressClickUntil = 0;
   /** @type {{id:number, x:number, y:number, scroll:number, active:boolean}|null} */
   let drag = null;
 
   /** @param {number} index */
   function updateActive(index) {
-    active = Math.max(0, Math.min(index, positions.length - 1));
+    active = Math.max(0, Math.min(Math.round(index), positions.length - 1));
+    const indicatorIndex = carouselIndicatorIndex(active, positions.length);
     dots.forEach((dot, dotIndex) => {
-      const current = dotIndex === 0 ? active === 0 : dotIndex === 2 ? active === positions.length - 1 : active > 0 && active < positions.length - 1;
+      const current = dotIndex === indicatorIndex;
       if (current) dot.setAttribute('aria-current', 'true');
       else dot.removeAttribute('aria-current');
     });
     const progress = dots[1];
     if (progress) {
-      progress.style.setProperty('--carousel-progress', String(positions.length > 1 ? active / (positions.length - 1) : 0));
       progress.setAttribute('aria-valuemax', String(Math.max(1, positions.length)));
       progress.setAttribute('aria-valuenow', String(active + 1));
       progress.setAttribute('aria-valuetext', `Vista ${active + 1} di ${Math.max(1, positions.length)}`);
@@ -62,12 +67,25 @@ export function initializeCarousel(root) {
     next.disabled = active >= positions.length - 1;
     const message = enabled ? `Vista ${active + 1} di ${positions.length}` : '';
     if (status.textContent !== message) status.textContent = message;
+    if (active !== announcedIndex || positions.length !== announcedCount) {
+      indicatorAnimation?.cancel();
+      const marker = progress?.querySelector('.carousel-progress-track');
+      if (announcedIndex >= 0 && indicatorIndex === 1 && !reducedMotion.matches && marker instanceof HTMLElement) {
+        indicatorAnimation = marker.animate([
+          { transform: 'scale(.85)', opacity: .65 },
+          { transform: 'scale(1)', opacity: 1 },
+        ], { duration: 320, easing: 'ease-out' });
+      }
+      announcedIndex = active;
+      announcedCount = positions.length;
+      root.dispatchEvent(new CustomEvent('carousel:change', { detail: { index: active, count: positions.length } }));
+    }
   }
 
   /** @param {number} index */
   function goTo(index) {
-    if (!enabled) return;
-    const target = Math.max(0, Math.min(index, positions.length - 1));
+    if (!enabled || !Number.isFinite(index)) return;
+    const target = Math.max(0, Math.min(Math.round(index), positions.length - 1));
     destination = target;
     updateActive(target);
     track.scrollTo({ left: positions[target], behavior: reducedMotion.matches ? 'instant' : 'smooth' });
@@ -104,6 +122,7 @@ export function initializeCarousel(root) {
   function refresh() {
     const width = track.clientWidth;
     if (!width) { controls.hidden = true; return; }
+    layoutWidth = width;
     const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
     const layout = carouselLayout({ width, count: track.children.length, minItemWidth, maxVisible, gap });
     const layoutChanged = positions.length !== layout.positions.length
@@ -123,7 +142,7 @@ export function initializeCarousel(root) {
     rebuildDots();
     updateActive(active);
     if (layoutChanged) {
-      destination = null;
+      destination = active;
       track.scrollTo({ left: positions[active] || 0, behavior: 'instant' });
     }
   }
@@ -155,6 +174,8 @@ export function initializeCarousel(root) {
   track.addEventListener('scroll', () => {
     if (!scrollFrame) scrollFrame = requestAnimationFrame(() => {
       scrollFrame = 0;
+      // A resize may emit a scroll event before ResizeObserver updates the snap positions.
+      if (track.clientWidth !== layoutWidth) { refresh(); return; }
       if (destination !== null && Math.abs(track.scrollLeft - positions[destination]) < 1) destination = null;
       updateActive(destination ?? nearestCarouselPosition(track.scrollLeft, positions));
     });
@@ -206,6 +227,7 @@ export function initializeCarousel(root) {
   sizeObserver.observe(track);
   const controller = {
     refresh,
+    goTo,
     destroy() {
       finishDrag();
       events.abort();
@@ -213,6 +235,7 @@ export function initializeCarousel(root) {
       sizeObserver.disconnect();
       cancelAnimationFrame(scrollFrame);
       cancelAnimationFrame(layoutFrame);
+      indicatorAnimation?.cancel();
       root.style.removeProperty('--carousel-visible');
       root.classList.remove('is-scrollable');
       root.removeAttribute('aria-roledescription');
