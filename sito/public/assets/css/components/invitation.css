@@ -1,0 +1,55 @@
+.invitation {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.invitation::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgb(255 255 255 / 8%);
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  right: -50px;
+  top: -120px;
+  pointer-events: none;
+}
+
+.invitation-inner {
+  padding-block: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.invitation .eyebrow {
+  color: #d3b676;
+  margin-bottom: 17px;
+}
+
+.invitation h2 {
+  color: var(--paper);
+}
+
+.invitation p:not(.eyebrow) {
+  color: #c6c2d6;
+  font-size: 13px;
+  margin-top: 21px;
+  line-height: 1.9;
+}
+
+@media (max-width: 620px) {
+  .invitation-inner {
+    display: block;
+    padding-block: 53px;
+  }
+
+  .invitation .button {
+    margin-top: 27px;
+  }
+
+}

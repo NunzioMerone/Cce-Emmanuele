@@ -1,0 +1,55 @@
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+  padding-block: 8px;
+}
+
+.text-link .icon {
+  width: 18px;
+  height: 18px;
+  transition: transform .35s var(--motion-ease);
+}
+
+.text-link:is(:hover, :focus-visible) .icon {
+  transform: translateX(3px);
+}
+
+.text-link:is(:hover, :focus-visible) {
+  color: #8c6723;
+}
+
+.text-link--feature {
+  gap: 20px;
+  min-height: 44px;
+  font-size: 18px;
+  color: var(--button-primary-bg);
+  transition: color .3s;
+}
+
+.text-link--feature .text-link-label {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.text-link--feature .text-link-label::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: currentColor;
+  opacity: .4;
+  transform: scaleX(.28);
+  transform-origin: left;
+  transition: transform .4s var(--motion-ease), opacity .3s;
+}
+
+.text-link--feature:is(:hover, :focus-visible) .text-link-label::after { transform: scaleX(1); opacity: 1; }
+.text-link--feature:is(:hover, :focus-visible) .icon { transform: translateX(6px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .text-link:is(:hover, :focus-visible) .icon { transform: none; }
+}

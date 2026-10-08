@@ -1,0 +1,11 @@
+.about-invitation { position: relative; isolation: isolate; overflow: hidden; background: var(--about-blue) url("../../images/home/welcome-waves.svg") center / cover no-repeat; color: white; }
+.about-invitation-layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 38px; align-items: center; padding-block: 40px; padding-right: 28%; min-height: 255px; }
+.page-chi-siamo .about-invitation .eyebrow, .page-chi-siamo .about-invitation h2 em { color: var(--button-gold-bg); }
+.about-invitation h2 { color: white; }
+.about-invitation-copy > p { color: #e7edf4; font-size: 14px; line-height: 1.65; margin-bottom: 20px; }
+.about-invitation-photo { position: absolute; inset: 0 0 0 74%; margin: 0; overflow: hidden; border-radius: 120px 0 0 0; }
+.about-invitation-photo img { height: 100%; width: 100%; object-fit: cover; object-position: 55% center; }
+.about-invitation-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #102e4b99, transparent 70%); }
+.about-invitation-photo figcaption { position: absolute; z-index: 1; bottom: 16px; right: 25px; color: white; font: 32px/1 Allura, cursive; transform: rotate(-8deg); }
+@media (max-width: 1000px) { .about-invitation-layout { grid-template-columns: 1fr; gap: 20px; padding-right: 35%; } .about-invitation-photo { left: 68%; } }
+@media (max-width: 620px) { .about-invitation-layout { padding: 32px 0; gap: 20px; } .about-invitation-copy { max-width: 420px; } .about-invitation-photo { position: relative; inset: auto; height: 190px; margin-left: 20%; border-top-left-radius: 85px; } .about-invitation-photo figcaption { font-size: 36px; } }

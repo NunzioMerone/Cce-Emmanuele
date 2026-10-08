@@ -1,0 +1,22 @@
+import { icon } from './icon.mjs';
+import { selectMenu } from './select-menu.mjs';
+import { button } from './button.mjs';
+
+/** @param {{includePlaylists?: boolean}} [options] */
+export function sermonFilters({ includePlaylists = true } = {}) {
+  return `  <dialog class="sermon-filter-dialog" id="sermon-filter-dialog" aria-labelledby="sermon-filter-title"><form id="sermon-filter-form">
+    <div class="filter-dialog-header"><div><p class="eyebrow">Uno spazio per la Parola</p><h2 id="sermon-filter-title">Cosa vuoi ascoltare?</h2><p class="filter-help">${includePlaylists ? 'Scegli il tempo, la serie o il periodo che fa per te.' : 'Scegli la durata o il periodo tra i messaggi di questa serie.'}</p></div><button type="button" class="dialog-close" id="close-sermon-filters" aria-label="Chiudi i filtri">${icon('close')}</button></div>
+    <div class="filter-tabs" role="tablist" aria-label="Tipi di filtro">
+      <button type="button" role="tab" id="tab-duration" aria-controls="panel-duration" aria-selected="true" data-filter-tab="duration">Durata<span data-tab-count="duration" hidden></span></button>
+      ${includePlaylists ? `<button type="button" role="tab" id="tab-playlist" aria-controls="panel-playlist" aria-selected="false" tabindex="-1" data-filter-tab="playlist">Serie<span data-tab-count="playlist" hidden></span></button>` : ''}
+      <button type="button" role="tab" id="tab-period" aria-controls="panel-period" aria-selected="false" tabindex="-1" data-filter-tab="period">Periodo<span data-tab-count="period" hidden></span></button>
+    </div>
+    <div class="filter-dialog-content">
+      <div role="tabpanel" id="panel-duration" aria-labelledby="tab-duration" tabindex="0"><fieldset><legend>Quanto tempo hai a disposizione?</legend><p class="filter-help">Puoi scegliere più fasce. Trovi qui solo quelle disponibili.</p><div id="duration-filter-options" class="duration-options"><p class="filter-placeholder">Le durate compariranno con la raccolta.</p></div><p class="duration-boundary-note">Ogni fascia include il limite finale: 20 minuti rientrano in 0–20.</p></fieldset></div>
+      ${includePlaylists ? `<div role="tabpanel" id="panel-playlist" aria-labelledby="tab-playlist" tabindex="0" hidden><fieldset><legend>Segui una serie</legend><p class="filter-help">Scegli una o più playlist del nostro canale.</p><div class="playlist-filter-search">${icon('search')}<label class="visually-hidden" for="playlist-filter-search">Cerca una playlist</label><input type="search" id="playlist-filter-search" placeholder="Cerca una serie…" autocomplete="off"></div><div id="playlist-filter-options" class="filter-options"><p class="filter-placeholder">Le playlist compariranno con la raccolta.</p></div><p id="playlist-filter-empty" class="filter-placeholder" role="status" hidden>Nessuna serie con questo nome.</p></fieldset></div>` : ''}
+      <div role="tabpanel" id="panel-period" aria-labelledby="tab-period" tabindex="0" hidden><fieldset><legend>Ritrova un periodo</legend><div class="month-year-row">${selectMenu({ id: 'filter-month-year', label: 'Filtra per anno', options: [{ value: '', label: 'Tutti gli anni' }], value: '', className: 'filter-year-menu' })}<span id="selected-months-note" aria-live="polite"></span></div><p class="filter-help month-help">L’anno filtra tutti i suoi messaggi. Scegli uno o più mesi solo se vuoi restringere la ricerca.</p><p id="month-year-placeholder" class="filter-placeholder">Seleziona un anno per scegliere anche i mesi.</p><div id="month-filter-options" class="filter-options filter-options--months"><p class="filter-placeholder">I mesi disponibili dipendono dai messaggi pubblicati.</p></div></fieldset>
+      <fieldset class="date-fieldset"><legend>Oppure scegli le date</legend><div class="date-filter-row"><label>Dal<input type="date" name="from" id="filter-date-from"></label><label>Al<input type="date" name="to" id="filter-date-to"></label></div><p class="filter-help">Le date si riferiscono alla pubblicazione su YouTube. Puoi combinarle con i mesi.</p></fieldset></div>
+      <p class="filter-validation" id="filter-validation" role="alert" hidden></p>
+    </div><div class="filter-dialog-footer"><div>${button({ label: 'Azzera filtri', variant: 'text', size: 'small', iconName: null, className: 'reset-link', attributes: { id: 'reset-filter-draft' } })}<p id="filter-preview" aria-live="polite">Tutti i messaggi</p></div>${button({ label: 'Mostra i messaggi', type: 'submit', size: 'small' })}</div>
+  </form></dialog>`;
+}

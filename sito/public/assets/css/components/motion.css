@@ -1,0 +1,26 @@
+/* Content is visible by default; JavaScript prepares only observed elements. */
+.reveal-prepared.reveal-pending { transition: none; }
+
+.reveal-prepared.reveal-visible {
+  transition: opacity var(--motion-duration) ease,
+    transform var(--motion-duration) var(--motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+[data-reveal="photo"].reveal-pending { transform: translateY(18px) scale(.97); }
+[data-reveal="fade"].reveal-pending { transform: none; }
+
+.reveal-pending:focus-within {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending { opacity: 1; transform: none !important; }
+}

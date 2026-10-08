@@ -1,0 +1,138 @@
+@import url("../components/sermon-card.css");
+@import url("../components/playlist-section.css");
+@import url("../components/catalog.css");
+@import url("../components/select-menu.css");
+@import url("../components/filter-chip.css");
+@import url("../components/sermon-filters.css");
+@import url("../components/video-player.css");
+.sermons-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 76px;
+  align-items: center;
+  padding-block: 65px 80px;
+}
+
+.latest-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.latest-label .eyebrow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 10px;
+}
+
+.latest-marker {
+  color: var(--warm-muted);
+  font-size: 10px;
+}
+
+.sermons-intro h1 {
+  font-size: clamp(48px, 4.5vw, 63px);
+  line-height: 1.06;
+  margin-block: 19px 25px;
+}
+
+.sermons-intro > p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.9;
+  max-width: 400px;
+  margin-bottom: 27px;
+}
+
+.sermons-archive {
+  padding-block: 66px 75px;
+  background: #f4f0e8;
+  border-radius: 44px 44px 0 0;
+}
+
+.archive-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+
+.archive-top h2 {
+  margin-block: 15px;
+}
+
+.archive-top > div > p:not(.eyebrow) {
+  font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+  .sermons-hero {
+    gap: 45px;
+  }
+
+  .sermons-intro h1 {
+    font-size: 54px;
+  }
+
+  .latest-marker {
+    display: none;
+  }
+
+}
+
+@media (max-width: 860px) {
+  .sermons-hero {
+    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+    padding-block: 50px;
+  }
+
+  .sermons-intro h1 {
+    font-size: 43px;
+  }
+
+  .sermons-intro > p:not(.eyebrow) {
+    font-size: 13px;
+  }
+
+}
+
+@media (max-width: 620px) {
+  .sermons-hero {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 38px;
+    padding-block: 40px 48px;
+  }
+
+  .sermons-intro h1 {
+    font-size: clamp(46px, 13vw, 59px);
+  }
+
+  .sermons-intro > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+
+  .latest-label .eyebrow {
+    font-size: 9px;
+  }
+
+  .sermons-archive {
+    padding-block: 40px 50px;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .archive-top {
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  .archive-top h2 {
+    font-size: 38px;
+  }
+
+}

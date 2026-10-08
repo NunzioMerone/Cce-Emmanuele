@@ -1,0 +1,10 @@
+.pastor-card { padding: 16px; border: 1px solid #ece4d8; border-radius: var(--card-radius); background: rgb(255 253 249 / 70%); }
+.pastor-card-photo, .pastor-card-initials { display: flex; align-items: center; justify-content: center; width: var(--pastor-avatar-size); height: var(--pastor-avatar-size); margin-bottom: 12px; border-radius: 50%; object-fit: cover; background: #eee4d2; color: #906b2d; font: 400 26px/1 var(--serif); }
+.pastor-card-photo { object-position: center 25%; }
+.pastor-card h4 { margin: 0; color: #0b2445; font-size: 16px; line-height: 1.4; font-weight: 600; }
+.pastor-card-phone { margin-top: 10px; }
+.pastor-card-phone > a, .pastor-card-phone > span { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
+.pastor-card-phone .icon { color: var(--button-accent); width: 16px; height: 16px; }
+.pastor-card-phone a:is(:hover, :focus-visible) { color: var(--button-accent); }
+@media (max-width: 1100px) { .pastor-card { padding: 16px 14px; } }
+@media (max-width: 620px) { .pastor-card h4 { font-size: 15px; } .pastor-card-phone > a, .pastor-card-phone > span { font-size: 11px; } }

@@ -1,0 +1,22 @@
+{
+  "name": "chiesa-emmanuele-sito",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sito vetrina della Chiesa Cristiana Evangelica Emmanuele",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:preview": "node scripts/build.mjs --static-preview",
+    "preview:catalog": "node scripts/export-preview-catalog.mjs",
+    "dev": "node scripts/build.mjs && node --env-file-if-exists=.env scripts/serve.mjs",
+    "start": "node --env-file-if-exists=.env scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/syntax.mjs && node scripts/build.mjs && node scripts/check.mjs && npm test"
+  },
+  "dependencies": {
+    "nodemailer": "^10.0.16"
+  }
+}

@@ -1,3 +1,7 @@
+> **Anteprima attuale:** https://nunziomerone.github.io/Cce-Emmanuele/
+>
+> Il nuovo sito è nella cartella [`sito/`](sito/README.md), pubblicata da GitHub Actions. Il progetto React precedente resta qui alla radice.
+
 # Chiesa Cristiana Evangelica Emmanuele 🙏
 
 Sito web ufficiale della Chiesa Cristiana Evangelica Emmanuele di Napoli.

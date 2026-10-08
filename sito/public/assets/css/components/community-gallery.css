@@ -1,0 +1,13 @@
+.about-community { padding-top: 8px; }
+.about-community-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; }
+.about-community-heading > p { max-width: 380px; font-size: 13px; }
+.community-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.community-gallery-photo { margin: 0; min-width: 0; }
+.community-gallery-image { height: 150px; overflow: hidden; border-radius: 10px; }
+.community-gallery-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--motion-ease); }
+.community-gallery-photo:hover img { transform: scale(1.035); }
+.community-gallery-photo figcaption { padding-top: 10px; }
+.community-gallery-photo strong { font-size: 14px; font-weight: 600; }
+.community-gallery-photo p { font-size: 12px; line-height: 1.55; margin-top: 3px; }
+@media (max-width: 860px) { .community-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; } .community-gallery-image { height: 190px; } .about-community-heading { display: block; } .about-community-heading > p { margin-top: 16px; } }
+@media (max-width: 620px) { .community-gallery-image { height: 115px; } .community-gallery-photo strong { font-size: 13px; } .community-gallery-photo p { font-size: 12px; } }

@@ -1,0 +1,24 @@
+@import url("../components/sermon-card.css");
+@import url("../components/catalog.css");
+@import url("../components/select-menu.css");
+@import url("../components/filter-chip.css");
+@import url("../components/sermon-filters.css");
+@import url("../components/video-player.css");
+
+.series-page { padding-block: 48px 80px; background: #f4f0e8; min-height: calc(100svh - var(--navbar-height)); }
+.series-heading { max-width: 880px; margin-bottom: 32px; }
+.series-heading > .text-link { margin-bottom: 36px; }
+.series-heading h1 { font-size: clamp(44px, 6vw, 72px); line-height: 1.1; margin-block: 16px 22px; overflow-wrap: anywhere; }
+.series-heading > p:not(.eyebrow) { font-size: 15px; line-height: 1.8; }
+#series-youtube:not(:empty) { margin-top: 20px; }
+.series-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 18px; }
+.series-empty { padding: 32px; border-radius: 16px; background: var(--card); font-size: 14px; }
+.series-more { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 32px; }
+.series-more p { font-size: 12px; color: var(--warm-muted); }
+.series-more-count { font-size: 11px; font-weight: 500; color: var(--warm-muted); }
+@media (max-width: 1050px) { .series-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 800px) { .series-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) {
+  .series-page { padding-block: 32px 50px; }
+  .series-grid { grid-template-columns: 1fr; gap: 20px; }
+}

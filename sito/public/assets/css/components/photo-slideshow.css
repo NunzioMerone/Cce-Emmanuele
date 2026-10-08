@@ -1,0 +1,33 @@
+.photo-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #cfc3af;
+}
+
+.photo-slideshow-images {
+  position: absolute;
+  inset: 0;
+}
+
+.photo-slideshow-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1800ms ease-in-out;
+}
+
+.photo-slideshow-image.is-active { opacity: 1; }
+.photo-slideshow-image--1 { object-position: 67% center; }
+.photo-slideshow-image--2 { object-position: 48% center; }
+.photo-slideshow-image--3 { object-position: center; }
+.photo-slideshow-image--4 { object-position: 70% center; }
+.photo-slideshow-image--5 { object-position: 72% 42%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-slideshow-image { transition: none; }
+}

@@ -1,0 +1,26 @@
+.skeleton-block, img[data-image-state="loading"] {
+  background: linear-gradient(100deg, #e8e2d8 20%, #f5f1e9 45%, #e8e2d8 70%);
+  background-size: 220% 100%;
+  animation: skeleton-shimmer 1.7s ease-in-out infinite;
+}
+.sermon-skeleton { overflow: hidden; border: 1px solid var(--warm-line); border-radius: var(--card-radius); background: var(--card); }
+.sermon-skeleton-image { aspect-ratio: 16 / 9; }
+.sermon-skeleton-body { padding: 20px 16px; min-height: 116px; }
+.skeleton-line { display: block; height: 12px; border-radius: 4px; margin-bottom: 14px; }
+.skeleton-line--short { width: 35%; height: 9px; }
+.skeleton-line--medium { width: 72%; }
+.sermon-skeleton--featured { border-radius: var(--featured-card-radius); }
+.sermon-skeleton--featured .sermon-skeleton-body { min-height: 126px; padding: 24px; }
+.sermon-skeleton--featured .skeleton-line:not(.skeleton-line--short) { height: 20px; }
+.sermon-skeleton-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 18px; }
+.catalog-feedback { display: flex; flex-direction: column; gap: 18px; font-size: 14px; line-height: 1.7; }
+.catalog-feedback-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.catalog-feedback-actions a { text-decoration: underline; text-underline-offset: 4px; }
+.catalog-state { display: grid; align-content: center; min-height: 250px; padding: 28px; border: 1px solid var(--warm-line); border-radius: var(--featured-card-radius); background: var(--card); color: var(--warm-muted); }
+img[data-image-state="error"] { opacity: 0; }
+.video-no-thumbnail { display: grid; place-items: center; height: 100%; width: 100%; color: #dfd8c9; font-size: 12px; background: #193650; }
+@keyframes skeleton-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@media (max-width: 1050px) { .sermon-skeleton-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 800px) { .sermon-skeleton-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .sermon-skeleton-grid { grid-template-columns: 1fr; } .sermon-skeleton-grid .sermon-skeleton:not(:first-child) { display: none; } .sermon-skeleton-body { min-height: 150px; } }
+@media (prefers-reduced-motion: reduce) { .skeleton-block, img[data-image-state="loading"] { animation: none; } }

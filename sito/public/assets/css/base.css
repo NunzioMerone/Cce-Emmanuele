@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 112px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  font: inherit;
+}
+
+button, a, input, summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: 1.08;
+}
+
+h1 {
+  font-size: clamp(52px, 6.3vw, 88px);
+}
+
+h2 {
+  font-size: clamp(36px, 4vw, 54px);
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -.035em;
+  line-height: 1.35;
+}
+
+em {
+  font-weight: 400;
+  color: #887044;
+}
+
+p {
+  color: var(--muted);
+}
+
+::selection {
+  background: #eadbbb;
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid #a16b16;
+  outline-offset: 5px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.gold-line {
+  width: 30px;
+  height: 2px;
+  display: inline-block;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.note-mark {
+  display: block;
+  color: #947438;
+  font: 55px/.8 var(--serif);
+  margin-top: 10px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 620px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+
+  h2 {
+    font-size: 39px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}

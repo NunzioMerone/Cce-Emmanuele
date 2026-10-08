@@ -1,0 +1,49 @@
+.about-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--about-blue);
+}
+
+.about-hero-photo { position: absolute; inset: 0; z-index: -1; }
+.about-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.about-hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(9,31,50,.9), rgba(9,31,50,.72) 30%, rgba(9,31,50,.12) 63%, rgba(9,31,50,.6)), linear-gradient(0deg, rgba(9,31,50,.2), transparent 60%);
+}
+
+.about-hero-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  min-height: clamp(360px, 34vw, 450px);
+  padding-block: 48px;
+}
+
+.about-hero-copy { max-width: 410px; }
+.page-chi-siamo .about-hero .eyebrow { color: #f1d5a2; }
+.about-hero h1 { color: #fff; font-size: clamp(62px, 6vw, 86px); }
+.about-hero h1 em { color: #f1d5a2; }
+.about-hero-description { max-width: 355px; color: #f4f3ef; font-size: 14px; line-height: 1.7; margin-top: 16px; }
+.about-hero-actions { margin-top: 24px; }
+.about-hero-caption { color: #fff; font: 40px/1.05 Allura, cursive; transform: rotate(-7deg); text-shadow: 0 2px 12px #102e4b; }
+.about-hero-caption::after { content: ''; display: block; height: 2px; width: 66px; background: var(--button-gold-bg); margin-top: 14px; margin-left: 38px; }
+
+@media (max-width: 860px) {
+  .about-hero-photo img { object-position: center 43%; }
+  .about-hero-layout { min-height: 385px; gap: 28px; }
+  .about-hero-copy { max-width: 365px; }
+  .about-hero-caption { font-size: 33px; }
+}
+
+@media (max-width: 620px) {
+  .about-hero-layout { display: block; min-height: 460px; padding-block: 42px 30px; }
+  .about-hero-photo img { object-position: 48% center; }
+  .about-hero-photo::after { background: linear-gradient(90deg, rgba(9,31,50,.87), rgba(9,31,50,.42)), linear-gradient(0deg, rgba(9,31,50,.45), transparent 65%); }
+  .about-hero h1 { font-size: clamp(54px, 15vw, 70px); }
+  .about-hero-description { font-size: 14px; max-width: 320px; }
+  .about-hero-caption { width: fit-content; margin: 28px 12px 0 auto; font-size: 29px; }
+}

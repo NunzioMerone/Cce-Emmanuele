@@ -1,0 +1,44 @@
+.faq details {
+  border-bottom: 1px solid var(--line);
+  padding-block: 22px;
+}
+
+.faq details:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.faq summary {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding-right: 30px;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  font-size: 21px;
+  font-weight: 400;
+  top: -5px;
+}
+
+.faq details[open] summary::after {
+  content: '−';
+}
+
+.faq p {
+  font-size: 13px;
+  margin-top: 16px;
+  line-height: 1.9;
+}
+
+.faq .text-link {
+  margin-top: 8px;
+}

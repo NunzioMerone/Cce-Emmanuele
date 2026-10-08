@@ -1,0 +1,26 @@
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.active-filters:not(:empty) {
+  margin-bottom: 25px;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ebe1cd;
+  color: var(--ink);
+  border: 1px solid #dbcbab;
+  border-radius: 100px;
+  padding: 10px 14px;
+  font-size: 12px;
+}
+
+.filter-chip .icon {
+  width: 13px;
+  height: 13px;
+}

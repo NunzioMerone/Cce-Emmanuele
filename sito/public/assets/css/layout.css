@@ -1,0 +1,168 @@
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+.container {
+  width: min(var(--container-width), calc(100% - var(--page-gutter)));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: 94px;
+}
+
+.section--soft {
+  background: var(--soft);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: flex-end;
+  margin-bottom: 44px;
+}
+
+.section-heading .eyebrow, .first-visit .eyebrow {
+  margin-bottom: 18px;
+}
+
+.heading-description {
+  max-width: 385px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 3px;
+}
+
+.section-link {
+  margin-top: 28px;
+}
+
+.photo-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--paper);
+  padding: 9px 16px;
+  font-size: 10px;
+  letter-spacing: .05em;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.page-hero {
+  padding-block: 72px 65px;
+}
+
+.page-hero .eyebrow {
+  margin-bottom: 22px;
+}
+
+.page-hero > p:not(.eyebrow) {
+  margin-top: 28px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.page-hero .button-row {
+  margin-top: 24px;
+}
+
+.first-visit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.first-visit > div:not(.contact-quote) > p:not(.eyebrow) {
+  font-size: 14px;
+  margin-block: 23px 28px;
+  line-height: 1.9;
+  max-width: 430px;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: calc(100% - var(--page-gutter-tablet));
+  }
+
+  .first-visit {
+    gap: 55px;
+  }
+
+}
+
+@media (max-width: 860px) {
+  .section {
+    padding-block: 70px;
+  }
+
+  .section-heading {
+    gap: 30px;
+  }
+
+  .heading-description {
+    max-width: 280px;
+    font-size: 13px;
+  }
+
+  .first-visit {
+    gap: 40px;
+  }
+
+}
+
+@media (max-width: 620px) {
+  .container {
+    width: calc(100% - var(--page-gutter-mobile));
+  }
+
+  .section {
+    padding-block: 55px;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .section-heading .text-link {
+    margin-top: 20px;
+  }
+
+  .heading-description {
+    margin-top: 25px;
+    max-width: 400px;
+  }
+
+  .page-hero {
+    padding-block: 45px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(45px, 12vw, 66px);
+  }
+
+  .page-hero > p:not(.eyebrow) {
+    font-size: 14px;
+    margin-top: 24px;
+  }
+
+  .page-hero > p br {
+    display: none;
+  }
+
+  .first-visit {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+}

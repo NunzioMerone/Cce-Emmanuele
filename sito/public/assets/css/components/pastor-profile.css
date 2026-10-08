@@ -1,0 +1,11 @@
+.pastor-profiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.pastor-profile { display: grid; grid-template-columns: 145px 1fr; gap: 22px; border: 1px solid var(--warm-line); border-radius: 12px; background: #fff; overflow: hidden; }
+.pastor-profile-photo img { width: 145px; height: 195px; object-fit: cover; object-position: center 26%; }
+.pastor-profile-copy { padding: 18px 20px 18px 0; align-self: center; }
+.pastor-profile-copy h3 { font: 23px/1.2 var(--serif); letter-spacing: -.035em; margin-bottom: 6px; }
+.page-chi-siamo .pastor-profile-copy .eyebrow { font-size: 9px; margin-bottom: 10px; }
+.page-chi-siamo .pastor-profile-copy .eyebrow::before { display: none; }
+.pastor-profile-copy > p:last-child { font-size: 13px; line-height: 1.6; }
+@media (max-width: 1000px) { .pastor-profile { grid-template-columns: 110px 1fr; gap: 16px; } .pastor-profile-photo img { width: 110px; height: 155px; } .pastor-profile-copy h3 { font-size: 21px; } }
+@media (max-width: 800px) { .pastor-profiles { grid-template-columns: 1fr; gap: 16px; } .pastor-profile { grid-template-columns: 125px 1fr; } .pastor-profile-photo img { width: 125px; height: 170px; } }
+@media (max-width: 620px) { .pastor-profile { grid-template-columns: 95px 1fr; gap: 14px; } .pastor-profile-photo { padding: 10px 0 10px 10px; } .pastor-profile-photo img { width: 85px; height: 120px; border-radius: 8px; } .pastor-profile-copy { padding: 15px 12px 15px 0; } .pastor-profile-copy h3 { font-size: 20px; } .pastor-profile-copy > p:last-child { font-size: 12px; } }
