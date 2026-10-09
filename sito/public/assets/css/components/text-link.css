@@ -14,12 +14,24 @@
   transition: transform .35s var(--motion-ease);
 }
 
-.text-link:is(:hover, :focus-visible) .icon {
+.text-link:focus-visible .icon {
   transform: translateX(3px);
 }
 
-.text-link:is(:hover, :focus-visible) {
+@media (hover: hover) and (pointer: fine) {
+  .text-link:hover .icon {
+    transform: translateX(3px);
+  }
+}
+
+.text-link:focus-visible {
   color: var(--accent-strong);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .text-link:hover {
+    color: var(--accent-strong);
+  }
 }
 
 .text-link--feature {
@@ -47,8 +59,15 @@
   transition: transform .4s var(--motion-ease), opacity .3s;
 }
 
-.text-link--feature:is(:hover, :focus-visible) .text-link-label::after { transform: scaleX(1); opacity: 1; }
-.text-link--feature:is(:hover, :focus-visible) .icon { transform: translateX(6px); }
+.text-link--feature:focus-visible .text-link-label::after { transform: scaleX(1); opacity: 1; }
+
+@media (hover: hover) and (pointer: fine) {
+  .text-link--feature:hover .text-link-label::after { transform: scaleX(1); opacity: 1; }
+}
+.text-link--feature:focus-visible .icon { transform: translateX(6px); }
+@media (hover: hover) and (pointer: fine) {
+  .text-link--feature:hover .icon { transform: translateX(6px); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .text-link:is(:hover, :focus-visible) .icon { transform: none; }

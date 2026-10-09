@@ -29,7 +29,10 @@
 }
 
 .select-menu-trigger > .icon { width: 17px; height: 17px; flex-shrink: 0; transition: rotate .25s; color: var(--accent-strong); }
-.select-menu-trigger:is(:hover, [aria-expanded="true"]) { border-color: var(--accent-strong); }
+.select-menu-trigger:is(:focus-visible, [aria-expanded="true"]) { border-color: var(--accent-strong); }
+@media (hover: hover) and (pointer: fine) {
+  .select-menu-trigger:hover { border-color: var(--accent-strong); }
+}
 .select-menu-trigger[aria-expanded="true"] > .icon { rotate: 180deg; }
 
 .select-menu-list {
@@ -68,7 +71,10 @@
 .select-menu-option > .icon { width: 17px; height: 17px; color: var(--accent-strong); opacity: 0; }
 .select-menu-option[aria-selected="true"] { background: var(--accent-soft); }
 .select-menu-option[aria-selected="true"] > .icon { opacity: 1; }
-.select-menu-option:is(:hover, :focus-visible) { background: var(--accent-tint); }
+.select-menu-option:focus-visible { background: var(--accent-tint); }
+@media (hover: hover) and (pointer: fine) {
+  .select-menu-option:hover { background: var(--accent-tint); }
+}
 .select-menu-option:focus-visible { outline: 1px solid var(--accent-strong); outline-offset: -2px; }
 
 @keyframes select-menu-enter { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }

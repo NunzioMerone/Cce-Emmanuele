@@ -56,16 +56,21 @@ export function initializeSelectMenu(root) {
   function focusOption(index) {
     active = Math.max(0, Math.min(index, options.length - 1));
     options[active].focus({ preventScroll: true });
-    options[active].scrollIntoView({ block: 'nearest' });
+    // Scroll only the options, never the page behind the dropdown.
+    const option = options[active];
+    const top = option.offsetTop;
+    const bottom = top + option.offsetHeight;
+    if (top < list.scrollTop) list.scrollTop = top;
+    else if (bottom > list.scrollTop + list.clientHeight) list.scrollTop = bottom - list.clientHeight;
   }
 
-  function open(index = active) {
+  function open(index = active, moveFocus = true) {
     refresh();
     if (trigger.disabled) return;
     prefix = '';
     list.hidden = false;
     trigger.setAttribute('aria-expanded', 'true');
-    focusOption(index);
+    if (moveFocus) focusOption(index);
   }
 
   list.addEventListener('click', event => {
@@ -77,7 +82,10 @@ export function initializeSelectMenu(root) {
     close(true);
     if (changed) select.dispatchEvent(new Event('change', { bubbles: true }));
   });
-  trigger.addEventListener('click', () => { if (list.hidden) open(); else close(); });
+  trigger.addEventListener('click', event => {
+    if (list.hidden) open(active, event.detail === 0);
+    else close();
+  });
   trigger.addEventListener('keydown', event => {
     if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
@@ -103,7 +111,17 @@ export function initializeSelectMenu(root) {
     }
   });
   document.addEventListener('pointerdown', event => { if (event.target instanceof Node && !root.contains(event.target)) close(); });
-  root.addEventListener('focusout', event => { if (!(event.relatedTarget instanceof Node) || !root.contains(event.relatedTarget)) close(); });
+  root.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || list.hidden) return;
+    event.preventDefault();
+    event.stopPropagation();
+    close(true);
+  });
+  root.addEventListener('focusout', event => {
+    // Safari can report no destination for a pointer click or a window losing focus.
+    // Outside pointer presses are handled separately, so they cannot close and reopen the trigger.
+    if (event.relatedTarget instanceof Node && !root.contains(event.relatedTarget)) close();
+  });
   select.addEventListener('change', refresh);
   const label = root.querySelector('label');
   label?.removeAttribute('for');

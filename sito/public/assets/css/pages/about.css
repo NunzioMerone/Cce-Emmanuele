@@ -34,7 +34,9 @@
 .about-section-quote cite { display: block; margin-top: 12px; font-style: normal; font-size: 10px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
 .about-section-quote::after, .about-copy-rule { content: ''; display: block; width: 28px; height: 2px; background: var(--about-gold); margin-top: 16px; }
 .about-photo-credit { font-size: 10px; margin-top: 22px; }
-.about-photo-credit a:hover { text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) {
+  .about-photo-credit a:hover { text-decoration: underline; }
+}
 @media (max-width: 1100px) { .page-chi-siamo { --about-edge: 32px; } }
 @media (max-width: 620px) {
   .page-chi-siamo { --about-edge: 20px; }

@@ -33,15 +33,30 @@
 .about-further-link span { min-width: 0; font-size: 14px; font-weight: 500; line-height: 1.5; }
 .about-further-arrow { width: 18px; height: 18px; margin-left: auto; transition: transform .35s var(--motion-ease), color .25s; }
 
-.about-further-link:is(:hover, :focus-visible) {
+.about-further-link:focus-visible {
   border-color: var(--about-gold);
   background: #fff;
   box-shadow: 0 6px 20px rgb(var(--brand-blue-rgb) / 8%);
 }
 
-.about-further-link:is(:hover, :focus-visible) .about-further-arrow {
+@media (hover: hover) and (pointer: fine) {
+  .about-further-link:hover {
+    border-color: var(--about-gold);
+    background: #fff;
+    box-shadow: 0 6px 20px rgb(var(--brand-blue-rgb) / 8%);
+  }
+}
+
+.about-further-link:focus-visible .about-further-arrow {
   color: var(--about-gold);
   transform: translateX(6px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about-further-link:hover .about-further-arrow {
+    color: var(--about-gold);
+    transform: translateX(6px);
+  }
 }
 
 @media (max-width: 1100px) {

@@ -5,6 +5,9 @@
 .pastor-card-phone { margin-top: 10px; }
 .pastor-card-phone > a, .pastor-card-phone > span { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
 .pastor-card-phone .icon { color: var(--button-accent); width: 16px; height: 16px; }
-.pastor-card-phone a:is(:hover, :focus-visible) { color: var(--button-accent); }
+.pastor-card-phone a:focus-visible { color: var(--button-accent); }
+@media (hover: hover) and (pointer: fine) {
+  .pastor-card-phone a:hover { color: var(--button-accent); }
+}
 @media (max-width: 1100px) { .pastor-card { padding: 16px 14px; } }
 @media (max-width: 620px) { .pastor-card h4 { font-size: 15px; } .pastor-card-phone > a, .pastor-card-phone > span { font-size: 11px; } }

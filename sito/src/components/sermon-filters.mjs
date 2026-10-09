@@ -5,7 +5,7 @@ import { button } from './button.mjs';
 /** @param {{includePlaylists?: boolean}} [options] */
 export function sermonFilters({ includePlaylists = true } = {}) {
   return `  <dialog class="sermon-filter-dialog" id="sermon-filter-dialog" aria-labelledby="sermon-filter-title"><form id="sermon-filter-form">
-    <div class="filter-dialog-header"><div><p class="eyebrow">Uno spazio per la Parola</p><h2 id="sermon-filter-title">Cosa vuoi ascoltare?</h2><p class="filter-help">${includePlaylists ? 'Scegli il tempo, la serie o il periodo che fa per te.' : 'Scegli la durata o il periodo tra i messaggi di questa serie.'}</p></div><button type="button" class="dialog-close" id="close-sermon-filters" aria-label="Chiudi i filtri">${icon('close')}</button></div>
+    <div class="filter-dialog-header"><div><p class="eyebrow">Uno spazio per la Parola</p><h2 id="sermon-filter-title" tabindex="-1" autofocus>Cosa vuoi ascoltare?</h2><p class="filter-help">${includePlaylists ? 'Scegli il tempo, la serie o il periodo che fa per te.' : 'Scegli la durata o il periodo tra i messaggi di questa serie.'}</p></div><button type="button" class="dialog-close" id="close-sermon-filters" aria-label="Chiudi i filtri">${icon('close')}</button></div>
     <div class="filter-tabs" role="tablist" aria-label="Tipi di filtro">
       <button type="button" role="tab" id="tab-duration" aria-controls="panel-duration" aria-selected="true" data-filter-tab="duration">Durata<span data-tab-count="duration" hidden></span></button>
       ${includePlaylists ? `<button type="button" role="tab" id="tab-playlist" aria-controls="panel-playlist" aria-selected="false" tabindex="-1" data-filter-tab="playlist">Serie<span data-tab-count="playlist" hidden></span></button>` : ''}

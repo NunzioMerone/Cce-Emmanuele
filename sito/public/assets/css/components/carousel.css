@@ -44,8 +44,14 @@
 
 .carousel-arrow.button .icon { width: 18px; height: 18px; }
 .carousel-arrow--previous .icon { rotate: 180deg; }
-.carousel-arrow.button:is(:hover, :focus-visible) { color: var(--button-accent-color); border-color: var(--button-accent); background: transparent; }
-.carousel-arrow.button:is(:hover, :focus-visible) .icon { transform: translateX(2px); }
+.carousel-arrow.button:focus-visible { color: var(--button-accent-color); border-color: var(--button-accent); background: transparent; }
+@media (hover: hover) and (pointer: fine) {
+  .carousel-arrow.button:hover { color: var(--button-accent-color); border-color: var(--button-accent); background: transparent; }
+}
+.carousel-arrow.button:focus-visible .icon { transform: translateX(2px); }
+@media (hover: hover) and (pointer: fine) {
+  .carousel-arrow.button:hover .icon { transform: translateX(2px); }
+}
 .carousel-arrow.button:disabled { color: #b6afa1; border-color: #e1d9ca; cursor: default; }
 .carousel-arrow.button:disabled .icon { transform: none; }
 
@@ -55,7 +61,9 @@
 .carousel-progress-track { width: 7px; height: 7px; border-radius: 20px; background: var(--carousel-dot-idle); transition: width .28s ease, transform .28s ease; }
 .carousel-dot:not(.carousel-dot--progress)::before { content: ''; }
 .carousel-dot[aria-current="true"]::before { width: 19px; background: var(--accent-strong); }
-.carousel-dot:not([aria-current]):hover::before { transform: scale(1.2); }
+@media (hover: hover) and (pointer: fine) {
+  .carousel-dot:not([aria-current]):hover::before { transform: scale(1.2); }
+}
 .carousel-progress-track { position: relative; overflow: hidden; }
 .carousel-dot--progress[aria-current="true"] .carousel-progress-track { width: 19px; }
 .carousel-progress-fill { position: absolute; inset: 0; background: var(--accent-strong); opacity: 0; }

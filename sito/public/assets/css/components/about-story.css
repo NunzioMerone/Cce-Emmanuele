@@ -15,9 +15,15 @@
 .about-story-date-short { display: none; }
 .about-story-step-dot { width: 14px; height: 14px; flex-shrink: 0; border: 2px solid var(--accent-strong); border-radius: 50%; background: #fffefa; transition: background-color .3s, box-shadow .3s; }
 .about-story-step-arrow { width: 17px; height: 17px; rotate: -90deg; color: var(--brand-blue); transition: transform .25s; }
-.about-story-step:is(:hover, :focus-visible) { border-color: var(--accent-strong); background: var(--accent-tint); }
+.about-story-step:focus-visible { border-color: var(--accent-strong); background: var(--accent-tint); }
+@media (hover: hover) and (pointer: fine) {
+  .about-story-step:hover { border-color: var(--accent-strong); background: var(--accent-tint); }
+}
 .about-story-step:focus-visible { outline-width: 2px; outline-offset: 3px; }
-.about-story-step:is(:hover, :focus-visible) .about-story-step-arrow { transform: translateY(3px); }
+.about-story-step:focus-visible .about-story-step-arrow { transform: translateY(3px); }
+@media (hover: hover) and (pointer: fine) {
+  .about-story-step:hover .about-story-step-arrow { transform: translateY(3px); }
+}
 .about-story-step.is-complete { border-color: var(--accent-line); }
 .about-story-step.is-complete .about-story-step-dot { background: var(--accent-fill); }
 .about-story-step[aria-selected="true"] { border-color: var(--accent-strong); background: var(--accent-tint); }
@@ -32,7 +38,10 @@
 .about-story-photo img { width: 100%; height: 100%; object-fit: cover; }
 .about-story-photo--historic img { filter: grayscale(1); object-position: center 65%; }
 .about-story-photo figcaption { color: var(--muted); font-size: 11px; line-height: 1.6; margin-top: 9px; }
-.about-story-photo figcaption a:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: 3px; }
+.about-story-photo figcaption a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .about-story-photo figcaption a:hover { text-decoration: underline; text-underline-offset: 3px; }
+}
 .about-story-copy { min-width: 0; }
 .about-story-date { color: var(--accent-strong); font-size: 15px; font-weight: 600; margin-bottom: 8px; }
 .about-story-copy h3 { color: var(--brand-blue); font: 400 clamp(29px, 2.9vw, 37px)/1.15 var(--serif); letter-spacing: -.035em; }

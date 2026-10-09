@@ -123,7 +123,7 @@ export function initializeSermonFilters({ getCollection, getFilters, onApply }) 
   dialog.addEventListener('close', () => {
     yearMenu?.close();
     document.documentElement.classList.remove('dialog-open');
-    get('open-sermon-filters').focus();
+    // Native dialog restoration keeps the opener's pointer/keyboard focus state.
   });
   dialog.addEventListener('click', event => {
     if (event.target !== dialog) return;

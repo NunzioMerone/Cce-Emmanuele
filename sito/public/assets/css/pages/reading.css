@@ -11,7 +11,9 @@
 .reading-opening { padding-block: 24px 32px; border-bottom: 1px solid var(--warm-line); background: var(--paper); }
 .reading-back-link { display: inline-flex; align-items: center; gap: 10px; min-height: 40px; margin-bottom: 16px; font-size: 14px; font-weight: 500; line-height: 1.5; color: var(--reading-blue); }
 .reading-back-link .icon { width: 18px; height: 18px; color: var(--reading-gold); }
-.reading-back-link:hover span { text-decoration: underline; text-underline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) {
+  .reading-back-link:hover span { text-decoration: underline; text-underline-offset: 4px; }
+}
 .reading-opening .eyebrow { font-size: 10px; color: var(--reading-gold); margin-bottom: 12px; }
 .reading-opening h1 { font-size: clamp(40px, 4.6vw, 58px); max-width: 940px; }
 .reading-layout { display: grid; grid-template-columns: 238px minmax(0, 1fr); align-items: start; gap: 64px; padding-block: 38px 48px; }
@@ -25,7 +27,9 @@
 .reading-toc-groups a { display: flex; gap: 9px; align-items: baseline; padding: 5px 0; font-size: 13px; line-height: 1.5; color: #55616d; }
 .reading-toc-groups a > span { color: var(--reading-gold); min-width: 20px; font-size: 11px; font-variant-numeric: tabular-nums; }
 .reading-toc-groups a.reading-toc-group { color: var(--reading-blue); font-weight: 600; font-size: 14px; }
-.reading-toc-groups a:hover { color: var(--reading-gold); }
+@media (hover: hover) and (pointer: fine) {
+  .reading-toc-groups a:hover { color: var(--reading-gold); }
+}
 .reading-index-mobile { display: none; }
 .reading-content p, .reading-principles { color: var(--reading-text); font-size: 17px; line-height: 1.8; overflow-wrap: break-word; }
 .reading-group + .reading-group { border-top: 1px solid var(--warm-line); margin-top: 38px; padding-top: 34px; }
@@ -57,7 +61,9 @@
 .reading-pdf-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 14px; color: var(--reading-blue); font-size: 15px; font-weight: 500; }
 .reading-pdf-link .icon { color: var(--reading-gold); width: 22px; height: 22px; }
 .reading-pdf-link .icon:last-child { width: 17px; height: 17px; }
-.reading-pdf-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) {
+  .reading-pdf-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+}
 .reading-source-credits { margin-top: 22px; }
 .reading-content .reading-source-credits p { font-size: 13px; line-height: 1.7; color: #616a74; margin-top: 6px; }
 .reading-source-credits p:first-child { font-size: 11px; letter-spacing: .04em; font-weight: 600; }
@@ -65,7 +71,9 @@
 .reading-related a { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; color: var(--reading-blue); }
 .reading-related .icon { width: 18px; height: 18px; color: var(--reading-gold); }
 .reading-back-arrow { transform: rotate(180deg); }
-.reading-related a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) {
+  .reading-related a:hover { text-decoration: underline; text-underline-offset: 4px; }
+}
 .reading-page--identity .reading-group > h2 { border-bottom: 1px solid var(--warm-line); padding-bottom: 18px; }
 .reading-page--identity .reading-topic { margin-top: 28px; }
 .reading-page--identity .reading-topic h3 .reading-number { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--accent-soft); font-size: 12px; align-self: flex-start; }

@@ -26,7 +26,7 @@ export const pages = [
     navigationSlug: 'chi-siamo',
     stylesheet: 'reading',
     title: 'La nostra fede',
-    description: 'Orientamento ecclesiologico, fondamento della fede, distintivi dottrinali e dichiarazioni etiche della Chiesa Cristiana Evangelica Emmanuele.',
+    description: 'Orientamento ecclesiologico e fondamento della fede della Chiesa Cristiana Evangelica Emmanuele.',
     render: faithPage,
   },
   {

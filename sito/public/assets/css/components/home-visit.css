@@ -46,7 +46,10 @@
 .visit-social-icon .icon { width: 28px; height: 28px; }
 .visit-social-profile strong { font-size: 16px; font-weight: 600; }
 .visit-social-profile > span:last-child { font-size: 12px; color: var(--muted); }
-.visit-social-profile:is(:hover, :focus-visible) .visit-social-icon { background: var(--brand-blue); color: var(--accent-light); }
+.visit-social-profile:focus-visible .visit-social-icon { background: var(--brand-blue); color: var(--accent-light); }
+@media (hover: hover) and (pointer: fine) {
+  .visit-social-profile:hover .visit-social-icon { background: var(--brand-blue); color: var(--accent-light); }
+}
 .visit-pastors-section { display: flex; flex-direction: column; flex: 1; margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--accent-line); }
 .visit-pastors-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: auto; }
 .visit-listening-note { grid-area: note; padding-inline: 18px; text-align: right; }

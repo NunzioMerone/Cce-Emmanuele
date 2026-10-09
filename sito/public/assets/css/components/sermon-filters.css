@@ -48,6 +48,9 @@
   letter-spacing: -.04em;
 }
 
+/* Initial focus announces the dialog without highlighting an unpressed control. */
+.filter-dialog-header h2:focus { outline: none; }
+
 .filter-dialog-header .eyebrow {
   font-size: 9px;
 }
@@ -55,17 +58,19 @@
 .dialog-close {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--card);
-  border: 1px solid var(--warm-line);
+  background: transparent;
+  border: 0;
   color: var(--ink);
   flex-shrink: 0;
 }
 
-.dialog-close:hover {
-  background: #eee5d5;
+@media (hover: hover) and (pointer: fine) {
+  .dialog-close:hover {
+    background: #eee5d5;
+  }
 }
 
 .dialog-close .icon {
@@ -402,6 +407,9 @@
 
 @media (max-width: 620px) {
 
+  .playlist-filter-search input,
+  .date-filter-row input { font-size: 16px; }
+
   .sermon-filter-dialog {
     width: calc(100% - 20px);
     max-height: calc(100dvh - 24px);
@@ -501,6 +509,7 @@
 }
 
 @media (max-width: 360px) {
+  .date-filter-row { grid-template-columns: 1fr; }
   .filter-dialog-header h2 {
     font-size: 26px;
   }

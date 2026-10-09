@@ -28,8 +28,10 @@
   font-size: 12px;
 }
 
-.video-load:hover {
-  background: rgb(var(--brand-blue-rgb) / 30%);
+@media (hover: hover) and (pointer: fine) {
+  .video-load:hover {
+    background: rgb(var(--brand-blue-rgb) / 30%);
+  }
 }
 
 .video-load .icon {
@@ -70,11 +72,13 @@
   overflow-wrap: anywhere;
 }
 
-.sermon-title-button:hover {
-  color: var(--accent-strong);
+@media (hover: hover) and (pointer: fine) {
+  .sermon-title-button:hover {
+    color: var(--accent-strong);
+  }
 }
 
-.sermon-card:focus-within {
+.sermon-card:has(:focus-visible) {
   box-shadow: 0 8px 24px rgb(61 43 17 / 10%);
 }
 
@@ -205,18 +209,18 @@
 
 @media (hover: hover) and (min-width: 621px) {
   .sermon-card:hover { box-shadow: 0 12px 30px rgb(61 43 17 / 9%); }
-  .sermon-card:not(.sermon-card--featured):is(:hover, :focus-within) { border-color: var(--accent-line); }
-  .sermon-card:not(.sermon-card--featured):is(:hover, :focus-within) .sermon-body {
+  .sermon-card:not(.sermon-card--featured):is(:hover, :has(:focus-visible)) { border-color: var(--accent-line); }
+  .sermon-card:not(.sermon-card--featured):is(:hover, :has(:focus-visible)) .sermon-body {
     height: calc(var(--sermon-body-height) + var(--sermon-body-reveal));
     box-shadow: 0 -5px 16px rgb(22 34 46 / 5%);
   }
-  .sermon-card:not(.sermon-card--featured):is(:hover, :focus-within) .text-link {
+  .sermon-card:not(.sermon-card--featured):is(:hover, :has(:focus-visible)) .text-link {
     opacity: 1;
     visibility: visible;
     transform: none;
     transition: opacity .25s ease .12s, transform .3s ease .12s, visibility 0s;
   }
-  .sermon-card:not(.sermon-card--featured):is(:hover, :focus-within) .video-duration {
+  .sermon-card:not(.sermon-card--featured):is(:hover, :has(:focus-visible)) .video-duration {
     transform: translateY(calc(-1 * var(--sermon-body-reveal)));
   }
   .sermon-card:hover .video-placeholder > img { transform: scale(1.025); }
@@ -247,4 +251,3 @@
 @media (prefers-reduced-motion: reduce) {
   .sermon-card, .sermon-body, .sermon-body .text-link, .video-placeholder > img, .video-duration { transition: none !important; }
 }
-

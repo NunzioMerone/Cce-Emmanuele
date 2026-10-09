@@ -21,8 +21,14 @@ page styles only position the component. */
   transition: transform .35s var(--motion-ease), background .3s, color .3s, box-shadow .35s;
 }
 
-.button:is(:hover, :focus-visible):not(:disabled) .button-icon--arrow {
+.button:focus-visible:not(:disabled) .button-icon--arrow {
   transform: translateX(6px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover:not(:disabled) .button-icon--arrow {
+    transform: translateX(6px);
+  }
 }
 
 .button--primary {
@@ -30,8 +36,14 @@ page styles only position the component. */
   color: var(--white);
 }
 
-.button--primary:is(:hover, :focus-visible):not(:disabled) {
+.button--primary:focus-visible:not(:disabled) {
   color: var(--button-primary-hover-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button--primary:hover:not(:disabled) {
+    color: var(--button-primary-hover-color);
+  }
 }
 
 .button--outline {
@@ -40,10 +52,18 @@ page styles only position the component. */
   border-color: #c6c2d1;
 }
 
-.button--outline:is(:hover, :focus-visible):not(:disabled) {
+.button--outline:focus-visible:not(:disabled) {
   background: var(--button-primary-bg);
   border-color: var(--button-primary-bg);
   color: var(--white);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button--outline:hover:not(:disabled) {
+    background: var(--button-primary-bg);
+    border-color: var(--button-primary-bg);
+    color: var(--white);
+  }
 }
 
 .button--accent-outline {
@@ -52,8 +72,14 @@ page styles only position the component. */
   border-color: var(--button-accent);
 }
 
-.button--accent-outline:is(:hover, :focus-visible):not(:disabled) {
+.button--accent-outline:focus-visible:not(:disabled) {
   color: var(--button-accent-hover-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button--accent-outline:hover:not(:disabled) {
+    color: var(--button-accent-hover-color);
+  }
 }
 
 .button--accent-outline .button-icon--play {
@@ -66,16 +92,32 @@ page styles only position the component. */
   fill: currentColor;
 }
 
-.button--accent-outline:is(:hover, :focus-visible) .button-icon--play {
+.button--accent-outline:focus-visible .button-icon--play {
   color: var(--button-accent-hover-color);
   transform: scale(1.1);
   box-shadow: 0 0 0 6px rgb(var(--brand-orange-rgb) / 20%);
 }
 
-.button--accent-outline:is(:hover, :focus-visible) .button-icon--play path {
+@media (hover: hover) and (pointer: fine) {
+  .button--accent-outline:hover .button-icon--play {
+    color: var(--button-accent-hover-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 0 6px rgb(var(--brand-orange-rgb) / 20%);
+  }
+}
+
+.button--accent-outline:focus-visible .button-icon--play path {
   transform-box: fill-box;
   transform-origin: center;
   animation: play-glide .6s var(--motion-ease) both;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button--accent-outline:hover .button-icon--play path {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: play-glide .6s var(--motion-ease) both;
+  }
 }
 
 @keyframes play-glide {
@@ -91,10 +133,19 @@ page styles only position the component. */
 }
 
 .button--gold { background: var(--button-gold-bg); color: var(--button-gold-color); }
-.button--gold:is(:hover, :focus-visible):not(:disabled) { background: var(--accent-light); color: var(--button-gold-hover-color); }
+.button--gold:focus-visible:not(:disabled) { background: var(--accent-light); color: var(--button-gold-hover-color); }
+@media (hover: hover) and (pointer: fine) {
+  .button--gold:hover:not(:disabled) { background: var(--accent-light); color: var(--button-gold-hover-color); }
+}
 
-.button--light:is(:hover, :focus-visible):not(:disabled) {
+.button--light:focus-visible:not(:disabled) {
   color: var(--button-accent-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button--light:hover:not(:disabled) {
+    color: var(--button-accent-color);
+  }
 }
 
 .button--text {
@@ -103,8 +154,14 @@ page styles only position the component. */
   padding-inline: 0;
 }
 
-.button--text:is(:hover, :focus-visible):not(:disabled) {
+.button--text:focus-visible:not(:disabled) {
   color: var(--accent-strong);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button--text:hover:not(:disabled) {
+    color: var(--accent-strong);
+  }
 }
 
 .button--small {
@@ -163,4 +220,7 @@ page styles only position the component. */
 }
 
 .button--icon-label .icon { width: 32px; height: 32px; }
-.button--icon-label:is(:hover, :focus-visible):not(:disabled) { color: var(--button-accent-color); }
+.button--icon-label:focus-visible:not(:disabled) { color: var(--button-accent-color); }
+@media (hover: hover) and (pointer: fine) {
+  .button--icon-label:hover:not(:disabled) { color: var(--button-accent-color); }
+}

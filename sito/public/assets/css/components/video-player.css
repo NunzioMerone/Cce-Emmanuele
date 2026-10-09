@@ -49,8 +49,10 @@
   color: var(--ink);
 }
 
-.video-player-close:hover {
-  background: var(--soft);
+@media (hover: hover) and (pointer: fine) {
+  .video-player-close:hover {
+    background: var(--soft);
+  }
 }
 
 .video-player-close .icon {

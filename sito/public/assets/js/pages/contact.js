@@ -1,5 +1,13 @@
 import { emailDraft } from '../utils/email-draft.mjs';
 
+// Fallback for browsers without native exclusive <details name> groups.
+if (!('name' in document.createElement('details'))) {
+  const questions = [...document.querySelectorAll('.contact-question')];
+  questions.forEach(question => question.addEventListener('toggle', () => {
+    if (question.open) questions.forEach(other => { if (other !== question) other.open = false; });
+  }));
+}
+
 for (const form of document.querySelectorAll('[data-contact-form]')) {
   if (!(form instanceof HTMLFormElement)) continue;
   form.hidden = false;
